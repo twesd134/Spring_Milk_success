@@ -60,7 +60,7 @@
 						<div class="form-group">
 							<form:label path="user_name">이름</form:label>
 							<form:input path="user_name" class='form-control'/>
-							<form:errors path="user_name" style='color:skyblue'/>
+							<form:errors path="user_name" style='color:red'/>
 						</div>
 						<div class="form-group">
 							<form:label path="user_id">아이디</form:label>
@@ -70,17 +70,17 @@
 									<button type="button" class="btn btn-primary" onclick='checkUserIdExist()'>중복확인</button>
 								</div>
 							</div>
-							<form:errors path="user_id" style='color:skyblue'/>
+							<form:errors path="user_id" style='color:red'/>
 						</div>
 						<div class="form-group">
 							<form:label path="user_pw">비밀번호</form:label>
 							<form:password path="user_pw" class='form-control'/>
-							<form:errors path='user_pw' style='color:skyblue'/>
+							<form:errors path='user_pw' style='color:red'/>
 						</div>
 						<div class="form-group">
 							<form:label path="user_pw2">비밀번호 확인</form:label>
 							<form:password path="user_pw2" class='form-control'/>
-							<form:errors path='user_pw2' style='color:skyblue'/>
+							<form:errors path='user_pw2' style='color:red'/>
 						</div>
 						<div class="form-group">
 							<div class="text-right">

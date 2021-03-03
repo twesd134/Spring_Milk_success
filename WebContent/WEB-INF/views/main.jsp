@@ -21,189 +21,35 @@
 <!-- 게시판 미리보기 부분 -->
 <div class="container" style="margin-top:100px">
 	<div class="row">
+		<c:forEach var='sub_list' items="${list }" varStatus="idx">
 		<div class="col-lg-6" style="margin-top:20px">
-		<!-- col-lg-6  같은넓이의 6개의 칼럼을 세로로 쓰고자할때 -->
 			<div class="card shadow">
-				<div class="card-body" align="right">
-					<h4 class="card-title">자유갤러리</h4>
+				<div class="card-body">
+					<h4 class="card-title">${board_list[idx.index].board_info_name }</h4>
 					<table class="table table-hover" id='board_list'>
-					<!-- table-hover은 다른색으로 변경해주는 기능 -->
 						<thead>
 							<tr>
-								<th class="text-center w-25">　</th>
+								<th class="text-center w-25">글번호</th>
 								<th>제목</th>
 								<th class="text-center w-25 d-none d-xl-table-cell">작성날짜</th>
 							</tr>
 						</thead>
 						<tbody>
+							<c:forEach var='obj' items='${sub_list }'>
 							<tr>
-								<td class="text-center">●</td>
-								<th><a href='${root }board/read'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
+								<td class="text-center">${obj.content_idx }</td>
+								<th><a href='${root }board/read?board_info_idx=${board_list[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1'>${obj.content_subject }</a></th>
+								<td class="text-center d-none d-xl-table-cell">${obj.content_date }</td>
 							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					
-					<a href="${root }board/main?board_info_idx=1" class="btn btn-success">더보기</a>
+					<a href="${root }board/main?board_info_idx=${board_list[idx.index].board_info_idx}" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6" style="margin-top:20px">
-			<div class="card shadow">
-				<div class="card-body" align="right">
-					<h4 class="card-title">유머갤러리</h4>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th class="text-center w-25"></th>
-								<th>제목</th>
-								<th class="text-center w-25 d-none d-xl-table-cell">작성날짜</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<a href="${root }board/main?board_info_idx=2" class="btn btn-success">더보기</a>
-				</div>
-			</div>
-		
-		</div>
-		<div class="col-lg-6" style="margin-top:20px">
-			<div class="card shadow">
-				<div class="card-body" align="right">
-					<h4 class="card-title">정치갤러리</h4>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th class="text-center w-25"></th>
-								<th>제목</th>
-								<th class="text-center w-25 d-none d-xl-table-cell">작성날짜</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2018-12-12</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<a href="${root }board/main?board_info_idx=3" class="btn btn-success">더보기</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-6" style="margin-top:20px">
-			<div class="card shadow">
-				<div class="card-body" align="right">
-					<h4 class="card-title">스포츠갤러리</h4>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th class="text-center w-25"></th>
-								<th>제목</th>
-								<th class="text-center w-25 d-none d-xl-table-cell">작성날짜</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-							<tr>
-								<td class="text-center">●</td>
-								<th><a href='board_read.html'>제목입니다</a></th>
-								<td class="text-center d-none d-xl-table-cell">2020-12-12</td>
-							</tr>
-						</tbody>
-					</table>
-					
-				  <a href="${root }board/main?board_info_idx=4" class="btn btn-success">더보기</a>
-				</div>
-			</div>
-		</div>
+		</c:forEach>
 	</div>
 </div>
 	
