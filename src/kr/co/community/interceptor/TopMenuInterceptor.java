@@ -12,6 +12,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.community.beans.BoardInfoBean;
+import kr.co.community.beans.ChartInfoBean;
 import kr.co.community.beans.UserBean;
 import kr.co.community.service.TopMenuService;
 
@@ -30,7 +31,9 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 			throws Exception {
 		// TODO Auto-generated method stub
 		List<BoardInfoBean> topMenuList = topMenuService.getTopMenuList();
+		List<ChartInfoBean> chartMenu=topMenuService.getchartMenu();
 		request.setAttribute("topMenuList", topMenuList);
+		request.setAttribute("chartMenu",chartMenu);
 		request.setAttribute("loginUserBean", loginUserBean);
 		
 		return true;

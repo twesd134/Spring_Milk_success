@@ -20,7 +20,9 @@ public class BoardDao {
 	}
 	
 	public String getBoardInfoName(int board_info_idx) {
+		
 		return sqlSessionTemplate.selectOne("board.getBoardInfoName", board_info_idx);
+		
 	}
 	
 	public List<ContentBean> getContentList(int board_info_idx, RowBounds rowBounds){

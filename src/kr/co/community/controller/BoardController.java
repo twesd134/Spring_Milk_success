@@ -43,15 +43,20 @@ public class BoardController {
 		model.addAttribute("boardInfoName", boardInfoName);
 		
 		List<ContentBean> contentList = boardService.getContentList(board_info_idx, page);
+		
 		model.addAttribute("contentList", contentList);
 		
 		PageBean pageBean = boardService.getContentCnt(board_info_idx, page);
+		
 		model.addAttribute("pageBean", pageBean);
 		
 		model.addAttribute("page", page);
 		
 		return "board/main";
+	
 	}
+	
+	
 	
 	@GetMapping("/read")
 	public String read(@RequestParam("board_info_idx") int board_info_idx,
@@ -80,6 +85,7 @@ public class BoardController {
 		return "board/write";
 	}
 	
+	
 	@PostMapping("/write_pro")
 	public String write_pro(@Valid @ModelAttribute("writeContentBean") ContentBean writeContentBean, BindingResult result) {
 		if(result.hasErrors()) {
@@ -89,6 +95,7 @@ public class BoardController {
 		boardService.addContentInfo(writeContentBean);
 		
 		return "board/write_success";
+		
 	}
 	
 	@GetMapping("/modify")

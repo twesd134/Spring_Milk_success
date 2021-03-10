@@ -23,8 +23,8 @@
 		if(user_id.length == 0){
 			alert('아이디를 입력해주세요')
 			return
-		}
 		
+		}
 		$.ajax({
 			url : '${root}user/checkUserIdExist/' + user_id,
 			type : 'get',

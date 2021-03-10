@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import kr.co.community.beans.BoardInfoBean;
+import kr.co.community.beans.ChartInfoBean;
 import kr.co.community.beans.ContentBean;
 import kr.co.community.service.MainService;
 import kr.co.community.service.TopMenuService;
@@ -36,6 +37,11 @@ public class MainController {
 		
 		List<BoardInfoBean> board_list = topMenuService.getTopMenuList();
 		model.addAttribute("board_list", board_list);
+		
+		/*
+		 * List<ChartInfoBean> chart_list = topMenuService.getchartMenu();
+		 * model.addAttribute("chart_list", chart_list);
+		 */
 		
 		return "main";
 	}

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+					    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chart">
+		<select id="getChartList" parameterType="String" resultType="kr.co.community.beans.ChartBean" >
+		<![CDATA[
+		select * from chart order by chart_date asc
+		]]>
+		
+		
+		</select>
+		<select id="getchartInfoName" parameterType="java.lang.Integer" resultType="java.lang.String">
+		<![CDATA[
+			select chart_info_name 
+			from chart_category 
+			where chart_info_idx = #{chart_info_idx}
+		]]>
+	</select>
+	<select id="getonechart" parameterType="String"  resultType="kr.co.community.beans.ChartBean">
+		
+		<![CDATA[
+		select * from chart where chart_date like '%'||#{chart_date,jdbcType=VARCHAR}||'%' order by chart_date asc
+		]]>
+	
+	 </select>
+		
+	
+</mapper>
+	

@@ -9,4 +9,16 @@
 			order by board_info_idx
 		]]>
 	</select>
+
+	<select id="get_chart_list" resultType='kr.co.community.beans.ChartInfoBean'>
+		<![CDATA[
+			select chart_info_idx, chart_info_name
+			from chart_category
+			order by chart_info_idx
+		]]>
+	</select>
+	
+	
+	
+	
 </mapper>
