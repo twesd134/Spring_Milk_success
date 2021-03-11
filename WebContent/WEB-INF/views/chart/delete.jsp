@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var='root' value='${pageContext.request.contextPath}/'/>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +109,7 @@ input[type="checkbox"] {
 
 
 
- <form action="deleteProc.jsp" method="post" >
+ <form action="${root }chart/delete_pro" method="post"  modelAttribute="chartBean" enctype="multipart/form-data">
  	  <div id="wrap">
 		<h1 class="member">삭제하기</h1>
    <div class="form">

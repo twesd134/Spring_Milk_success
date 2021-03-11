@@ -40,7 +40,7 @@ public class ChartBean {
 	private int Target;
 	private int product;
 	private int id;
-	
+
 	
 	
 	

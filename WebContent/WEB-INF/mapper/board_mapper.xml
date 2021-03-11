@@ -36,6 +36,7 @@
 		]]>
 	</select>
 	
+	
 	<select id="getContentInfo" parameterType="java.lang.Integer" resultType="kr.co.community.beans.ContentBean">
 		<![CDATA[
 			select a2.user_name as content_writer_name, 
@@ -67,6 +68,9 @@
 			select count(*) from content_table where content_board_idx = #{content_board_idx}
 		]]>
 	</select>
+	
+	
+
 </mapper>
 
 

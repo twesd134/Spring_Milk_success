@@ -32,5 +32,27 @@ public class chartService {
 		 return chartdao.getonechart(chart_date);
 	 }
 	 
+	 public void addchartInfo(ChartBean writechart)
+	 {
+		 chartdao.addchartInfo(writechart);
+	 }
 
+
+
+	public ChartBean getchartInfo(String chart_date) {
+	
+		return chartdao.getchartInfo(chart_date);
+	
+		}
+	
+	public void modifychartInfo(ChartBean modifychartbean)
+	{
+		chartdao.modifychartInfo(modifychartbean);
+	
+	}
+	
+	public void deletechartInfo(String chart_date) {
+		chartdao.deletechartInfo(chart_date);
+	}
+	
 }

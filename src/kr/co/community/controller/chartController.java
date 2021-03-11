@@ -8,10 +8,12 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.community.beans.ChartBean;
+import kr.co.community.beans.ContentBean;
 import kr.co.community.service.BoardService;
 import kr.co.community.service.chartService;
 
@@ -42,11 +44,9 @@ public class chartController {
 			return "chart/chart_main";
 		}
 	
-		
 	
-		@GetMapping("/chart_main_pro") public String chart_main_pro(
-	  
-	  @RequestParam("chart_date")String chart_date, Model model) {
+		@GetMapping("/chart_main_pro") 
+		public String chart_main_pro( @RequestParam("chart_date")String chart_date, Model model) {
 	  
 		model.addAttribute("chart_date",chart_date);
 		List<ChartBean> getonechart=chartservice.getonechart(chart_date);
@@ -57,15 +57,71 @@ public class chartController {
 	  return "chart/chart_main";
 	  
 	  }
+	
+	  @GetMapping("/write") 
+	  public String write_chart(@ModelAttribute("writechart") ChartBean writechart,
+			  @RequestParam(value="chart_info_idx",required=false) int chart_info_idx )
+	  {
+		  writechart.setId(chart_info_idx);
+		
+		  
+		  return "chart/write";
+	  }
+	  
+	  @PostMapping("/write_pro")
+	  public String write_pro(@Valid @ModelAttribute("writechart") ChartBean writechart, BindingResult result)
+	  {
+		 
+			if(result.hasErrors()) {
+				return "chart/write";
+			}
+		  
+		chartservice.addchartInfo(writechart);
+		
+		return "chart/chart_wrie_success";
+			
+	  }
+	  
 	 
-}		
+	  @GetMapping("/modify") 
+	  public String modify()
+	  
+	  {
+		  return "chart/modify";
+	  }
+	  
+	  @PostMapping("/modify_pro")
+	  public String modify_pro(@Valid @ModelAttribute("modifychartBean") ChartBean modifychartBean, BindingResult result)
+	  {
+		 
+			if(result.hasErrors()) {
+				return "chart/chart_main";
+			}
+		  
+		chartservice.modifychartInfo(modifychartBean);
 		
-		
+		return "chart/modify_success";
+			
+	  }
+	  
+	  @GetMapping("/delete")
+	  public String delete()
+	  
+	  {
+		  
 
 		
-		
-		
-		
-		
-		
-		
+	  return "chart/delete";
+	  }
+	  
+	  @PostMapping("/delete_pro")
+	  public String delete_pro(@RequestParam(value="chart_date",required=false)String chart_date)
+	  
+	  {
+		  
+		 chartservice.deletechartInfo(chart_date);
+	  return "chart/delete_success";
+	  }
+	  
+	  
+}

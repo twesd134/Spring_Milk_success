@@ -23,7 +23,35 @@
 		]]>
 	
 	 </select>
-		
+	 
+	 <select id="getchartInfo" parameterType="java.lang.Integer" resultType="kr.co.community.beans.ChartBean">
+		<![CDATA[
+			select chart_date,target,product 
+			from chart 
+			where chart_date=#{chart_date};
+		]]>
+	</select>
+	
+	<update id="modifychartInfo" parameterType="kr.co.community.beans.ChartBean">
+		<![CDATA[
+			update chart set target=#{target}
+			,product=#{product} 
+			where chart_date=#{chart_date}		
+			]]>
+	</update>
+	
+	<delete id="deletechartInfo"   parameterType="kr.co.community.beans.ChartBean">
+		<![CDATA[
+		delete from chart where chart_date=#{chart_date,jdbcType=VARCHAR}
+		]]>
+	</delete>
+	
+	<insert id="addchartInfo" parameterType="kr.co.community.beans.ChartBean">
+	<![CDATA[
+	insert into chart(id,kind,chart_date,product,target) values(id_seq.nextval,'A101',#{chart_date},#{product},#{target})
+	]]>
+
+	</insert>
 	
 </mapper>
 	

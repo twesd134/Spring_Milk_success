@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+ <c:set var='root' value='${pageContext.request.contextPath}/'/>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,25 +18,64 @@
 
 <script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
 
-<script>
-//달력 하나씩 사용할때
-$(function() {
-  $( "#11" ).datepicker({
-    dateFormat: 'yy-mm-dd',
-    prevText: '이전 달',
-    nextText: '다음 달',
-    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    dayNames: ['일','월','화','수','목','금','토'],
-    dayNamesShort: ['일','월','화','수','목','금','토'],
-    dayNamesMin: ['일','월','화','수','목','금','토'],
-    showMonthAfterYear: true,
-    changeMonth: true,
-    changeYear: true,
-    yearSuffix: '년'
-  });
-});
-</script>
+<body>
+	
+	
+	<form action="${root }chart/write_pro" name="chartform" modelAttribute="chartBean" enctype="multipart/form-data" method='post'>
+		
+	
+	
+	<input type="button" onclick="window.open('${root }chart_main?chart_info_idx=1')"value="차트 메인 페이지"></button>
+	
+	
+	<br>
+	
+		<br> 
+	<div id="wrap">
+   <h1 class="member">차트 입력 페이지 </h1>
+   <div class="form">
+    <div class="form2">
+     <div class="form3">
+	<label for="11">일자</label>
+	<input type="text" id="11" name="chart_date"  placeholder="날짜 입력">
+	<input type="button" value="달력" onclick="$('#11').datepicker('show');" />
+		
+	<div class="clear"></div>
+	
+	 <label for="21">목표치</label>	
+	<input type="text" id="21"  name="target"  >
+
+	<div class="clear"></div>
+	
+	
+	
+	
+	 <label for="31">실적치</label>	
+	<input type="text" id="31" name="product">
+	<div class="clear"></div>
+	
+	
+	     <div class="form4">
+	
+	
+	<label><input type="submit" value="차트추가" onclick="chk()"></label>    
+	
+	<label><input type="reset" value="다시작성" onclick="chk()"></label>
+	</div>
+	</div>
+	</div>
+	</div>
+	</tr>
+	</table>
+	</form>
+	
+	
+	
+</body>
+</html>
+
+
+
 <script type="text/javascript">
 
         function chk()
@@ -41,32 +84,32 @@ $(function() {
         
         	
         	
-        	var month1="2021-01-01";
-        	var month1e="2021-01-30";
+        	var month1="2020-01-01";
+        	var month1e="2020-01-30";
         	
-        	var month2="2021-02-01";
-        	var month2e="2021-02-28";
+        	var month2="2020-02-01";
+        	var month2e="2020-02-28";
         	
-        	var month3="2021-03-01";
-        	var month3e="2021-03-30";
-        	var month4="2021-04-01";
-        	var month4e="2021-04-30";
-        	var month5="2021-05-01";
-        	var month5e="2021-05-30";
-        	var month6="2021-06-01";
-        	var month6e="2021-06-30";
-        	var month7="2021-07-01";
-        	var month7e="2021-07-30";
-        	var month8="2021-08-01";
-        	var month8e="2021-08-30";
-        	var month9="2021-09-01";
-        	var month9e="2021-09-30";
-        	var month10="2021-10-01";
-        	var month10e="2021-10-30";
-        	var month11="2021-11-01";
-        	var month11e="2021-11-30";
-        	var month12="2021-12-01";
-        	var month12e="2021-12-30";
+        	var month3="2020-03-01";
+        	var month3e="2020-03-30";
+        	var month4="2020-04-01";
+        	var month4e="2020-04-30";
+        	var month5="2020-05-01";
+        	var month5e="2020-05-30";
+        	var month6="2020-06-01";
+        	var month6e="2020-06-30";
+        	var month7="2020-07-01";
+        	var month7e="2020-07-30";
+        	var month8="2020-08-01";
+        	var month8e="2020-08-30";
+        	var month9="2020-09-01";
+        	var month9e="2020-09-30";
+        	var month10="2020-10-01";
+        	var month10e="2020-10-30";
+        	var month11="2020-11-01";
+        	var month11e="2020-11-30";
+        	var month12="2020-12-01";
+        	var month12e="2020-12-30";
         	
         	
         	
@@ -193,59 +236,24 @@ input[type="checkbox"] {
 
 
 </style>
-<body>
-	
-	
-	<form action="chartProc.jsp" name="chartform" metdod="post">
-		
-	
-	
-	<input type="button" onclick="location.href='index.html'" value="첫페이지로 이동">
-	<input type="button" onclick="window.open('chartMain.jsp')"value="차트 메인 페이지"></button>
-	
-	
-	<br>
-	
-		<br> 
-	<div id="wrap">
-   <h1 class="member">차트 입력 페이지 </h1>
-   <div class="form">
-    <div class="form2">
-     <div class="form3">
-	<label for="11">일자</label>
-	<input type="text" id="11" name="chart_date"  placeholder="날짜 입력">
-	<input type="button" value="달력" onclick="$('#11').datepicker('show');" />
-		
-	<div class="clear"></div>
-	
-	 <label for="21">목표치</label>	
-	<input type="text" id="21"  name="target"  >
 
-	<div class="clear"></div>
-	
-	
-	
-	
-	 <label for="31">실적치</label>	
-	<input type="text" id="31" name="product">
-	<div class="clear"></div>
-	
-	
-	     <div class="form4">
-	
-	
-	<label><input type="submit" value="차트추가" onclick="chk()"></label>    
-	
-	<label><input type="reset" value="다시작성" onclick="chk()"></label>
-	</div>
-	</div>
-	</div>
-	</div>
-	</tr>
-	</table>
-	
-	
-	</form>
-	
-</body>
-</html>
+
+<script>
+//달력 하나씩 사용할때
+$(function() {
+  $( "#11" ).datepicker({
+    dateFormat: 'yy-mm-dd',
+    prevText: '이전 달',
+    nextText: '다음 달',
+    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    dayNames: ['일','월','화','수','목','금','토'],
+    dayNamesShort: ['일','월','화','수','목','금','토'],
+    dayNamesMin: ['일','월','화','수','목','금','토'],
+    showMonthAfterYear: true,
+    changeMonth: true,
+    changeYear: true,
+    yearSuffix: '년'
+  });
+});
+</script>

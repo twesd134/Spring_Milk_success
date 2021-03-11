@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.community.beans.ChartBean;
+import kr.co.community.beans.ContentBean;
 
 @Repository
 public class ChartDao {
@@ -30,6 +31,22 @@ public class ChartDao {
 		return sqlSessionTemplate.selectList("chart.getonechart",chart_date);
 	
 	}
+
+	public void addchartInfo(ChartBean writechart) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.insert("chart.addchartInfo", writechart);
+	}
 	
+	public ChartBean getchartInfo(String chart_date) {
+		return sqlSessionTemplate.selectOne("chart.getchartInfo", chart_date);
+	}
+	
+	public void modifychartInfo(ChartBean modifychartbean) {
+		sqlSessionTemplate.selectOne("chart.modifychartInfo", modifychartbean);
+	}
+	
+	public void deletechartInfo(String chart_date) {
+		sqlSessionTemplate.delete("chart.deletechartInfo", chart_date);
+	}
 	
 }
