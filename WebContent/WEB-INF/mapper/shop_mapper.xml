@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop">
-
 <select id="shopInfoName" parameterType="java.lang.Integer" resultType="java.lang.String">
 		<![CDATA[
 		  select shop_name
@@ -10,5 +9,17 @@
 			where shop_idx = #{shop_idx}
 		]]>
 	</select>
+	
+<select id="listProduct" parameterType="String" resultType="kr.co.community.beans.ProductBean">
+	<![CDATA[
+		select p_id,
+    	p_name,
+    	p_price,
+    	p_desc,
+    	p_url
+		from t_product
+		order by p_id asc
+	]]>
+	</select>	
 	
 </mapper>

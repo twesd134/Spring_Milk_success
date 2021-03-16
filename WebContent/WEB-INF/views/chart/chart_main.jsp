@@ -115,7 +115,7 @@
 	<div class="table-area"> 
 	<c:forEach var='obj' items="${getonechart }">
 	
-		<table border="1"  align="center">
+		<table border="1" align="center">
 		
 		
 		<tr>

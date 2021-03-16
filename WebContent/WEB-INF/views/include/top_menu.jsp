@@ -38,9 +38,9 @@
 			
 			<li class="nav-item">
 				<a href="${root }chart/chart_main?chart_info_idx=${obj.chart_info_idx }" class="nav-link">${obj.chart_info_name }</a>
-			</li>
+			</li> 
 		
-		</c:forEach>
+		</c:forEach> 
 		
 		</ul>
 		

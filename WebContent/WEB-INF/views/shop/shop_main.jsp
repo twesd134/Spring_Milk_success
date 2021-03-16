@@ -3,6 +3,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <c:set var='root' value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
 <html>
@@ -38,24 +40,26 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
             <th>상품이미지</th>
             <th>상품명</th>
             <th>가격</th>
+           </tr>
         
-        </tr>
-        
-        <c:forEach var="row" items="${list}">
+        <c:forEach var="obj" items="${listProduct }">
         <tr>
         	<td>
-                ${obj.productId}
+                ${obj.p_id}
+            </td>
+            
+            <td>
+               <a href="${path}detail/${obj.p_id}">
+               <img alt="" src="${root }images/${obj.p_url}" width="120" height="120">
+               </a>
+            </td>
+            
+            <td>
+            
+                <a href="${path}detail/${obj.p_id}">${obj.p_name}</a>
             </td>
             <td>
-                <a href="${path}/shop/product/detail/${row.productId}">
-                    <img src="${path}/images/${row.productUrl}" width="120ox" height="110px">
-                </a>
-            </td>
-            <td>
-                <a href="${path}/shop/product/detail/${row.productId}">${row.productName}</a>
-            </td>
-            <td>
-                <fmt:formatNumber value="${row.productPrice}" pattern="###,###,###"/>
+                <fmt:formatNumber value="${obj.p_price}"/>
             </td>
         </tr>
         </c:forEach>
