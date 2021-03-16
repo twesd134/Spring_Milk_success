@@ -16,19 +16,31 @@
 		<ul class="navbar-nav">
 		
 		
+		<c:forEach var='obj' items='${ShopMenu }'>
+		 <li class="nav-item">
+			    <a href="${root }shop/shop_main?shop_idx=${obj.shop_idx }" class="nav-link">${obj.shop_name }</a>
+		</li>
+		</c:forEach>
 		
+		 <li class="nav-item">
+			    <a href="${root }shop/shop_result" class="nav-link">주문 결과</a>
+		</li>
 		
-			<c:forEach var='obj' items='${topMenuList }'>
+		<c:forEach var='obj' items='${topMenuList }'>
+			
 			<li class="nav-item">
 				<a href="${root }board/main?board_info_idx=${obj.board_info_idx}" class="nav-link">${obj.board_info_name }</a>
 			</li>
-			</c:forEach>
 			
+			</c:forEach>
+		
 		<c:forEach var='obj' items='${chartMenu }'>
+			
 			<li class="nav-item">
 				<a href="${root }chart/chart_main?chart_info_idx=${obj.chart_info_idx }" class="nav-link">${obj.chart_info_name }</a>
 			</li>
-			</c:forEach>
+		
+		</c:forEach>
 		
 		</ul>
 		
@@ -60,3 +72,4 @@
 		</ul>
 	</div>
 </nav>
+

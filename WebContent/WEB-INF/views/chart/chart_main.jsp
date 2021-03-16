@@ -68,6 +68,7 @@
 
 
 	<input type="submit" value="검색">
+ 	<a href="${root }chart/chart_main?chart_info_idx=1">차트CRUD하기 </a> &nbsp;
 
 	<td>${Bean.chart_date}월</td>
 	</form>
@@ -92,16 +93,11 @@
 	</div>
 	
 	
-	<button type="button" id="change">차트 변경 </button>
-<%-- 	<a href="${root }board/write?board_info_idx=${board_info_idx}" class="btn btn-primary">차트입력</a> --%>
+	<button type="button" id="change">차트 변경 </button> &nbsp;
 	
-<%-- 	<button onclick="<a href="${root }chart/write?chart_info_idx=${chart_info_idx}" class="page-link">"/>차트입력/a> --%>
-	
-	<a href="${root }chart/write?chart_info_idx=${chart_info_idx}">차트 입력하기</a>
-	<a href="${root }chart/modify?chart_info_idx=${chart_info_idx}">차트 수정하기</a>
+	<a href="${root }chart/write?chart_info_idx=${chart_info_idx}">차트 입력하기</a> &nbsp;
+	<a href="${root }chart/modify?chart_info_idx=${chart_info_idx}">차트 수정하기</a> &nbsp;
 	<a href="${root }chart/delete?chart_info_idx=${chart_info_idx}">차트 삭제하기</a>
-<%-- 	<button onclick="window.open('${root}chart/write')">차트입력하기</button> --%>
-	
 	
 
 	 </table>
@@ -169,7 +165,6 @@
 				borderColor: 'rgb(0, 142, 255)',
 				fill: false,
 				data: [
-
 					<c:forEach var='obj' items="${getonechart }">
 					'${obj.target}',  
 		 			</c:forEach>
@@ -180,7 +175,6 @@
 				borderColor: 'rgba(255, 99, 132, 1)',
 				fill: false,
 				data: [
-
 				
 					<c:forEach var='obj' items="${getonechart}">
 					'${obj.product}',  
@@ -227,4 +221,3 @@
 	
   </script>
 </body> 
-

@@ -14,45 +14,68 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
+
+<style>
+body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
+
+
+
+</style>
 <body>
 	
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
+  <h1 align="center">　</h1>
+   <hr>
+   <h2>자기소개</h2>
+   
+    <table style="width:60%; height: 100px; margin: auto; text-align: center;">
 
-<!-- 게시판 미리보기 부분 -->
-<div class="container" style="margin-top:100px">
-	<div class="row">
-		<c:forEach var='sub_list' items="${list }" varStatus="idx">
-		<div class="col-lg-6" style="margin-top:20px">
-			<div class="card shadow">
-				<div class="card-body">
-					<h4 class="card-title">${board_list[idx.index].board_info_name }</h4>
-					<table class="table table-hover" id='board_list'>
-						<thead>
-							<tr>
-								<th class="text-center w-25">글번호</th>
-								<th>제목</th>
-								<th class="text-center w-25 d-none d-xl-table-cell">작성날짜</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var='obj' items='${sub_list }'>
-							<tr>
-								<td class="text-center">${obj.content_idx }</td>
-								<th><a href='${root }board/read?board_info_idx=${board_list[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1'>${obj.content_subject }</a></th>
-								<td class="text-center d-none d-xl-table-cell">${obj.content_date }</td>
-							</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					
-					<a href="${root }board/main?board_info_idx=${board_list[idx.index].board_info_idx}" class="btn btn-primary">더보기</a>
-				</div>
-			</div>
-		</div>
-		</c:forEach>
-	</div>
-</div>
-	
+   <tr>
+     <td>Name   </td><td> :</td><td>   홍 길동</td>
+   </tr>
+   <tr>
+     <td>Age    </td><td> :</td><td>   18</td>
+   </tr>
+   <tr>
+     <td>Address</td><td> :</td><td><address>서울시 중구</address>   </td>
+   </tr>
+   <tr>
+     <td>Phone  </td><td> :</td><td>   010-0123-4567</td>
+   </tr>
+   <tr>
+     <td>E-mail </td><td> :</td><td>   hong@abc.com</td>
+   </tr>
+   <tr>
+     <td>Tall   </td><td> :</td><td>   180Cm</td>
+   </tr>
+   <tr>
+     <td>Weight </td><td> :</td><td>   75KG</td>
+   </tr>
+   <tr>
+     <td>Blood  </td><td> :</td><td> <em>  O형</em></td>
+   </tr>
+   <tr>
+     <td>Hobby  </td><td> :</td><td>   Travel</td>
+   </tr>
+     
+   </table>
+   </ul>
+   <p><font size="5" color="darkblue" face="돋움, arial, 굴림">학력사항</font></p>
+   <tr>
+  <td>   
+       한국 초등학교 2000년 졸업 <br>
+       한국 중학교 2003년 졸업<br>
+       한국 고등학교 2006년 졸업
+   </td>   
+ 
+  </tr>
+   <hr>
+   <div>
+
+
+
+
+
 <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
 
 </body>

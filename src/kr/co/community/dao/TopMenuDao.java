@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.community.beans.BoardInfoBean;
 import kr.co.community.beans.ChartInfoBean;
+import kr.co.community.beans.ShopInfoBean;
 
 @Repository
 public class TopMenuDao {
@@ -21,11 +22,17 @@ public class TopMenuDao {
 	}
 
 
-	
-	
 	public List<ChartInfoBean> getchartMenu(){
 		List<ChartInfoBean> chartMenu = sqlSessionTemplate.selectList("topmenu.get_chart_list");
 		return chartMenu;
 		
 	}
+	
+	public List<ShopInfoBean> getShopMenu(){
+		List<ShopInfoBean> ShopMenu = sqlSessionTemplate.selectList("topmenu.get_shop_list");
+		return ShopMenu;
+		
+	}
+	
+	
 }

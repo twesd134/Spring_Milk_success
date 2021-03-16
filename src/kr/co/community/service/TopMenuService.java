@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.co.community.beans.BoardInfoBean;
 import kr.co.community.beans.ChartBean;
 import kr.co.community.beans.ChartInfoBean;
+import kr.co.community.beans.ShopInfoBean;
 import kr.co.community.dao.TopMenuDao;
 
 @Service
@@ -27,6 +28,10 @@ public class TopMenuService {
 		return chartMenu;
 	}
 	
+	public List<ShopInfoBean> getShopMenu(){
+		List<ShopInfoBean> ShopMenu=topMenuDao.getShopMenu();
+		return ShopMenu;
+	}
 	
 	
 }

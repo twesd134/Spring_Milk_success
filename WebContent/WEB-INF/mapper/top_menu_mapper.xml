@@ -18,7 +18,15 @@
 		]]>
 	</select>
 	
-	
+	<select id="get_shop_list" resultType='kr.co.community.beans.ShopInfoBean'>
+		<![CDATA[
+			
+			select shop_idx, shop_name
+			from category_shop
+			order by shop_idx
+		
+		]]>
+	</select>
 	
 	
 </mapper>

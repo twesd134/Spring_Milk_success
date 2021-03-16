@@ -107,6 +107,7 @@ input[type="checkbox"] {
 
 <body>
 
+	<a href='${root }chart/chart_main?chart_info_idx=1' value="차트 메인 페이지">차트 메인 페이지</a>
 
 
  <form action="${root }chart/delete_pro" method="post"  modelAttribute="chartBean" enctype="multipart/form-data">

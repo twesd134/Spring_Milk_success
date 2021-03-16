@@ -25,7 +25,8 @@
 		
 	
 	
-	<input type="button" onclick="window.open('${root }chart_main?chart_info_idx=1')"value="차트 메인 페이지"></button>
+	<a href='${root }chart/chart_main?chart_info_idx=1' value="차트 메인 페이지">차트 메인 페이지</a>
+	
 	
 	
 	<br>
@@ -113,9 +114,19 @@
         	
         	
         	
-       	if(ch>=month1 && ch<=month1e || ch>=month2 && ch<=month2e || ch>=month3 && ch<=month3e || ch>=month4 && ch<=month4e || ch>=month5 && ch<=month5e
-       	|| ch>=month6 && ch<=month6e || ch>=month7 && ch<=month7e || ch>=month8 && ch<=month8e || ch>=month9 && ch<=month9e || ch>=month10 && ch<=month10e
-       	|| ch>=month11 && ch<=month11e || ch>=month12 && ch<=month12e
+       	if(
+       	ch>=month1 && ch<=month1e ||
+       	ch>=month2 && ch<=month2e || 
+       	ch>=month3 && ch<=month3e || 
+       	ch>=month4 && ch<=month4e || 
+       	ch>=month5 && ch<=month5e || 
+       	ch>=month6 && ch<=month6e || 
+       	ch>=month7 && ch<=month7e || 
+       	ch>=month8 && ch<=month8e || 
+       	ch>=month9 && ch<=month9e || 
+   	ch>=month10&& ch<=month10e|| 
+      ch>=month11 && ch<=month11e || 
+      ch>=month12 && ch<=month12e
        	)
          {
        	  alert("추가완료");
