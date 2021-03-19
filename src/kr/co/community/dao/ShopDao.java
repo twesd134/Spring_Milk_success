@@ -25,4 +25,15 @@ public class ShopDao {
 		return sqlSessionTemplate.selectList("shop.listProduct",shop_idx);
 	}
 	
+	public List<ProductBean> getProduct(String p_id)
+	{
+		return sqlSessionTemplate.selectList("shop.getProduct",p_id);
+	}
+	
+	public List<ProductBean> Result()
+	{
+		return sqlSessionTemplate.selectList("shop.Result");
+	}
+	
+	
 }

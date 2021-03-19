@@ -40,7 +40,7 @@
 				<a href="${root }chart/chart_main?chart_info_idx=${obj.chart_info_idx }" class="nav-link">${obj.chart_info_name }</a>
 			</li> 
 		
-		</c:forEach> 
+		</c:forEach>
 		
 		</ul>
 		
@@ -50,6 +50,7 @@
 		
 		<ul class="navbar-nav ml-auto">
 			<c:choose>
+				
 				<c:when test="${loginUserBean.userLogin == true }">
 					<li class="nav-item">
 						<a href="${root }user/modify" class="nav-link">정보수정</a>
@@ -58,6 +59,7 @@
 						<a href="${root }user/logout" class="nav-link">로그아웃</a>
 					</li>
 				</c:when>
+				
 				<c:otherwise>
 					<li class="nav-item">
 						<a href="${root }user/login" class="nav-link">로그인</a>

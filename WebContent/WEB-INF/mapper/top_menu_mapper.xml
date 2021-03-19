@@ -28,5 +28,14 @@
 		]]>
 	</select>
 	
+	<select id="getcartMenu" resultType='kr.co.community.beans.cartInfoBean'>
+		<![CDATA[
+			
+			select cart_idx, cart_name
+			from category_cart
+			order by cart_idx
+		
+		]]>
+	</select>
 	
 </mapper>

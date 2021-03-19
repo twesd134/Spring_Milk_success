@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.community.beans.BoardInfoBean;
-import kr.co.community.beans.ChartBean;
 import kr.co.community.beans.ChartInfoBean;
 import kr.co.community.beans.ShopInfoBean;
+import kr.co.community.beans.cartInfoBean;
 import kr.co.community.dao.TopMenuDao;
 
 @Service
@@ -33,5 +33,8 @@ public class TopMenuService {
 		return ShopMenu;
 	}
 	
-	
+	public List<cartInfoBean> getcartMenu(){
+		List<cartInfoBean> getcartMenu=topMenuDao.getcartMenu();
+		return getcartMenu;
+	}
 }

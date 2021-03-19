@@ -96,6 +96,12 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.5.4</version>
 		</dependency>
+		
+		<dependency>
+   		 <groupId>javax.inject</groupId>
+   		 <artifactId>javax.inject</artifactId>
+   		 <version>1</version>
+	</dependency>
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
 			<groupId>org.mybatis</groupId>

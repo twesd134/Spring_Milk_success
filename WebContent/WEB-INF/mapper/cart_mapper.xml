@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+					    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cart">
+    <insert id="insertCart">
+      <![CDATA[
+        INSERT INTO tbl_cart(
+            cart_id,p_id, amount
+        ) VALUES (
+            seq_cart.NEXTVAL,#{p_id}, #{amount}
+        )
+         ]]>
+        
+    </insert>
+    <select id="listCart" parameterType="String"  resultType="kr.co.community.beans.CartVO">
+     <![CDATA[
+     SELECT 
+     		c.cart_id AS cart_id,
+            p.p_id As p_id,
+            p.p_name AS p_name, 
+            c.amount as amount, 
+            p.p_price AS p_price, 
+            (p_price * amount) money
+     	FROM
+         t_product p, tbl_cart c
+        WHERE p.p_id = c.p_id  ORDER BY c.cart_id
+        ]]>
+    </select>
+    
+    <select id="sumMoney" resultType="int">
+     <![CDATA[
+        SELECT NVL(SUM(p_price * amount), 0) money
+        FROM tbl_cart c, t_product p
+        WHERE c.p_id = p.p_id 
+           ]]>
+    </select>
+    <update id="modifyCart">
+    <![CDATA[
+        UPDATE tbl_cart    
+        SET amount = #{amount} 
+        WHERE
+        AND p_id = #{p_id}
+             ]]>
+    </update>
+    
+    <delete id="deleteCart">
+      <![CDATA[
+        DELETE FROM tbl_cart 
+        WHERE cart_id = #{cart_id}
+          ]]>
+    </delete>
+    
+    
+    <select id="countCart" resultType="int">
+        <![CDATA[
+        SELECT COUNT(*)
+        FROM tbl_cart
+       WHERE p_id = #{p_id}
+        ]]>
+    </select>
+
+    <update id="updateCart">
+      <![CDATA[
+        UPDATE tbl_cart 
+        SET amount = amount + #{amount} 
+        WHERE p_id = #{p_id}
+        ]]>
+    </update>
+</mapper>

@@ -12,9 +12,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.community.beans.BoardInfoBean;
+import kr.co.community.beans.CartVO;
 import kr.co.community.beans.ChartInfoBean;
 import kr.co.community.beans.ShopInfoBean;
 import kr.co.community.beans.UserBean;
+import kr.co.community.beans.cartInfoBean;
 import kr.co.community.service.TopMenuService;
 
 public class TopMenuInterceptor implements HandlerInterceptor{
@@ -34,6 +36,9 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 		List<BoardInfoBean> topMenuList = topMenuService.getTopMenuList();
 		List<ChartInfoBean> chartMenu=topMenuService.getchartMenu();
 		List<ShopInfoBean> ShopMenu=topMenuService.getShopMenu();
+		List<cartInfoBean> cartMenu=topMenuService.getcartMenu();
+		
+		request.setAttribute("cartMenu",cartMenu );
 		request.setAttribute("topMenuList", topMenuList);
 		request.setAttribute("chartMenu",chartMenu);
 		request.setAttribute("ShopMenu",ShopMenu);

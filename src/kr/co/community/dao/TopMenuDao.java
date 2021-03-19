@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.community.beans.BoardInfoBean;
 import kr.co.community.beans.ChartInfoBean;
 import kr.co.community.beans.ShopInfoBean;
+import kr.co.community.beans.cartInfoBean;
 
 @Repository
 public class TopMenuDao {
@@ -34,5 +35,9 @@ public class TopMenuDao {
 		
 	}
 	
-	
+	public List<cartInfoBean> getcartMenu(){
+		List<cartInfoBean> getcartMenu = sqlSessionTemplate.selectList("topmenu.getcartMenu");
+		return getcartMenu;
+		
+	}
 }

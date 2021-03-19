@@ -17,7 +17,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
 
-</head>
 
 <style>
 body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
@@ -25,10 +24,11 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 
 
 </style>
+</head>
 <body>
 
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
-	
+<%-- 	<form action="${root }shop/detail"  modelAttribute="ProductBean" enctype="multipart/form-data"> --%>
 	<table style="width:60%; height: 100px; margin: auto; text-align: center;">
 
 <br><br><br>
@@ -45,25 +45,29 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
         <c:forEach var="obj" items="${listProduct }">
         <tr>
         	<td>
+        	
                 ${obj.p_id}
+           
             </td>
             
             <td>
-               <a href="${path}detail/${obj.p_id}">
+               <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}">
                <img alt="" src="${root }images/${obj.p_url}" width="120" height="120">
                </a>
-            </td>
+            </td><td>
             
-            <td>
-            
-                <a href="${path}detail/${obj.p_id}">${obj.p_name}</a>
+                 <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}">${obj.p_name}</a>
             </td>
+           	
             <td>
                 <fmt:formatNumber value="${obj.p_price}"/>
             </td>
         </tr>
         </c:forEach>
         </table>
+        
+<!--         </form> -->
+        
     <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
 </body>
 </html>

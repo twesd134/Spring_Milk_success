@@ -2,10 +2,12 @@ package kr.co.community.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.community.beans.ChartBean;
 import kr.co.community.beans.ContentBean;
+import kr.co.community.beans.UserBean;
 import kr.co.community.service.BoardService;
 import kr.co.community.service.chartService;
 
@@ -28,6 +31,9 @@ public class chartController {
 		@Autowired
 		private chartService chartservice;
 		
+		@Resource(name = "loginUserBean")
+		@Lazy
+		private UserBean loginUserBean;
 		
 		@GetMapping("/chart_main")
 		public String chart_main(@RequestParam(value="chart_info_idx",required=false)int chart_info_idx,
@@ -39,7 +45,8 @@ public class chartController {
 			
 			List<ChartBean> getonechart =chartservice.getonechart(chart_date);
 			model.addAttribute("getonechart",getonechart);
-		
+			model.addAttribute("loginUserBean", loginUserBean);
+
 			
 			return "chart/chart_main";
 		}

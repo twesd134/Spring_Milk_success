@@ -54,5 +54,7 @@ public class chartService {
 	public void deletechartInfo(String chart_date) {
 		chartdao.deletechartInfo(chart_date);
 	}
-	
+
+
+
 }
