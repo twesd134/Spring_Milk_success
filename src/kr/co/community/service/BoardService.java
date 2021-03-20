@@ -74,6 +74,7 @@ public class BoardService {
 		RowBounds rowBounds = new RowBounds(start, page_listcnt);
 		
 		return boardDao.getContentList(board_info_idx, rowBounds);
+		
 	}
 	
 	public ContentBean getContentInfo(int content_idx) {

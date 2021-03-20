@@ -76,6 +76,7 @@ public class BoardController {
 		return "board/read";
 	}
 	
+	
 	@GetMapping("/write")
 	public String write(@ModelAttribute("writeContentBean") ContentBean writeContentBean,
 						@RequestParam("board_info_idx") int board_info_idx) {

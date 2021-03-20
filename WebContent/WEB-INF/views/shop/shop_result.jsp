@@ -36,6 +36,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 
 </style>
 <!-- JSP Bean 활용해서 저기에 담아오자 -->
+
 </head>
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
 
@@ -54,7 +55,6 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                     <th>총금액</th>
                 </tr>
 
-                
                 <c:forEach var='obj' items="${listCart}">
                 
                 <tr>
@@ -68,7 +68,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                         <fmt:formatNumber pattern="###,###,###" value="${obj.p_price}"/>
                     </td>
                     
-                    <td>${obj.amount}</td>
+                    <td>${obj.amount}Box</td>
                     
                     <td>
                         <fmt:formatNumber pattern="###,###,###" value="${obj.money}"/>

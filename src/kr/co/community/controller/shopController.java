@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.community.beans.CartVO;
+import kr.co.community.beans.PageBean;
 import kr.co.community.beans.ProductBean;
+import kr.co.community.beans.UserBean;
 import kr.co.community.service.ShopService;
 import kr.co.community.service.cartService;
 
@@ -29,18 +33,30 @@ public class shopController {
 	private ShopService shopservice;
 	
 	
+	@Resource(name = "loginUserBean")
+	@Lazy
+	private UserBean loginUserBean;
+	
 	@Autowired
 	private cartService cartService;
 	
 	
 	@GetMapping("/shop_main")
-	public String shop_main(@RequestParam("shop_idx") int shop_idx,Model model)
+	public String shop_main(@RequestParam("shop_idx") int shop_idx,
+			   @RequestParam(value = "page", defaultValue = "1") int page,
+			   Model model)
 	
 	{
 		model.addAttribute("shop_idx",shop_idx);
-		List<ProductBean> listProduct= shopservice.listProduct(shop_idx);
+		List<ProductBean> listProduct= shopservice.listProduct(shop_idx,page);
 		model.addAttribute("listProduct",listProduct);
 		
+		PageBean pageBean = shopservice.getContentCnt(shop_idx, page);
+		model.addAttribute("pageBean", pageBean);
+		
+		model.addAttribute("page", page);
+		
+		model.addAttribute("loginUserBean", loginUserBean);
 		return "shop/shop_main";
 		
 	}
@@ -51,6 +67,7 @@ public class shopController {
 		  
 	        List<CartVO> listCart = cartService.listCart(); // 장바구니 정보 
 	        model.addAttribute("listCart",listCart);
+			model.addAttribute("loginUserBean", loginUserBean);
 	        return "shop/shop_result";
 	}
 	
@@ -64,6 +81,7 @@ public class shopController {
 		model.addAttribute("shop_idx",shop_idx);
 		List<ProductBean> getProduct=shopservice.getProduct(p_id);
 		model.addAttribute("getProduct",getProduct);
+		model.addAttribute("loginUserBean", loginUserBean);
 		return "shop/detail";
 	}
 	

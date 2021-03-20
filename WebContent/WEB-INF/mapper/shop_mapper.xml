@@ -38,5 +38,9 @@
 	]]>
 	</select>
 	
-	
+	<select id="getContentCnt" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		<![CDATA[
+			select count(*) from t_product
+		]]>
+	</select>
 </mapper>
