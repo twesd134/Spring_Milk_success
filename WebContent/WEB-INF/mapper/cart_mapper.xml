@@ -3,28 +3,32 @@
 					    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cart">
-    <insert id="insertCart">
+	
+	
+	
+    <insert id="insertCart"  parameterType="kr.co.community.beans.CartVO">
       <![CDATA[
         INSERT INTO tbl_cart(
-            cart_id,p_id, amount
+            cart_id,p_id,amount
         ) VALUES (
             seq_cart.NEXTVAL,#{p_id}, #{amount}
         )
          ]]>
         
     </insert>
-    <select id="listCart" parameterType="String"  resultType="kr.co.community.beans.CartVO">
+    <select id="listCart"  parameterType="String" resultType="kr.co.community.beans.CartVO">
      <![CDATA[
-     SELECT 
-     		c.cart_id AS cart_id,
+   		    select 
+   		    c.cart_id AS cart_id,
+            p.p_url as p_url,
             p.p_id As p_id,
             p.p_name AS p_name, 
             c.amount as amount, 
             p.p_price AS p_price, 
             (p_price * amount) money
-     	FROM
-         t_product p, tbl_cart c
-        WHERE p.p_id = c.p_id  ORDER BY c.cart_id
+     	from
+         t_product p join tbl_cart c on p.p_id = c.p_id 
+          ORDER BY c.cart_id
         ]]>
     </select>
     

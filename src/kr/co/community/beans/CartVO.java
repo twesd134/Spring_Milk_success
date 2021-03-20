@@ -1,14 +1,30 @@
 package kr.co.community.beans;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CartVO {
 		
 	
-	public int getCartId() {
-		return cartId;
+		
+	public String getP_url() {
+		return p_url;
 	}
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
+	public void setP_url(String p_url) {
+		this.p_url = p_url;
 	}
+	public int getCart_id() {
+		return cart_id;
+	}
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
+	}
+	public MultipartFile getProductPhoto() {
+		return productPhoto;
+	}
+	public void setProductPhoto(MultipartFile productPhoto) {
+		this.productPhoto = productPhoto;
+	}
+
 	public int getP_id() {
 		return p_id;
 	}
@@ -39,11 +55,18 @@ public class CartVO {
 	public void setMoney(int money) {
 		this.money = money;
 	}
-	private int cartId; // 장바구니 번호
+	
+	
+	
+	private int cart_id; // 장바구니 번호
 	private int p_id; // 상품 번호
 	private String p_name; // 상품 이름
 	private int p_price; // 상품 단가
+	private String p_url;
 	private int amount; // 구매 수량
 	private int money; // 상품 가격
+	
+
+	private MultipartFile productPhoto;
 	
 }

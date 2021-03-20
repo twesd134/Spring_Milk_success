@@ -51,12 +51,14 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
             </td>
             
             <td>
-               <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}">
+               <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}&p_url=${obj.p_url}">${obj.p_name}
                <img alt="" src="${root }images/${obj.p_url}" width="120" height="120">
                </a>
+               
+               
             </td><td>
             
-                 <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}">${obj.p_name}</a>
+               <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}&p_url=${obj.p_url}">${obj.p_name}
             </td>
            	
             <td>

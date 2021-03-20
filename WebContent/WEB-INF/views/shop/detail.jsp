@@ -62,7 +62,9 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 		
 		<form name="form1" action="${root }shop/insert.do">
 		수량&nbsp;:&nbsp;
+		<input type="hidden" name="p_url" value="${obj.p_url }">
 		<input type="hidden" name="p_id" value="${obj.p_id}">
+		
 		<select name="amount">
 			
 			<option value="1">1Box</option>
@@ -76,8 +78,8 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 			<option value="9">9Box</option>
 			<option value="10">10Box</option>
 		
-		
 		</select>
+		
 		<input type="submit" value="장바구니에 담기">
 		<input type="button" value="상품목록" onclick="location.href='${root }shop/shop_main?shop_idx=${shop_idx }'">
 		

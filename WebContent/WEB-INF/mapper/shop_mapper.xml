@@ -37,19 +37,6 @@
 		where p_id = #{p_id,jdbcType=VARCHAR}
 	]]>
 	</select>
-	<select id="Result" parameterType="String" resultType="kr.co.community.beans.ProductBean">
-	<![CDATA[
-		select p_id,
-    	p_name,
-    	p_price,
-    	p_desc,
-    	p_url
-		from t_product
-		order by p_id asc
-		
-		
-		
-	]]>
-	</select>
+	
 	
 </mapper>

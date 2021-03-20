@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.community.beans.CartVO;
+import kr.co.community.beans.ProductBean;
 import kr.co.community.dao.CartDAO;
 
 @Service
@@ -15,8 +16,8 @@ public class cartService {
 	    CartDAO cartDao;
 
 	    // 1. 장바구니 추가
-	    public void insert(CartVO vo) {
-	        cartDao.insert(vo);
+	    public void insertCart(CartVO vo) {
+	        cartDao.insertCart(vo);
 	    }
 	    // 2. 장바구니 목록
 	    public List<CartVO> listCart() {
@@ -38,9 +39,8 @@ public class cartService {
 	    public int countCart(int p_id) {
 	        return cartDao.countCart(p_id);
 	    }
-	    // 7. 장바구니 상품 수량 변경
-	    public void updateCart(CartVO vo) {
-	        cartDao.updateCart(vo);
-	    }
-	
+	/*
+	 * // 7. 장바구니 상품 수량 변경 public void updateCart(CartVO vo) {
+	 * cartDao.updateCart(vo); }
+	 */
 }

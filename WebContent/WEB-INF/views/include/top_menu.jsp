@@ -22,10 +22,12 @@
 		</li>
 		</c:forEach>
 		
+		<c:forEach var='obj' items='${cartMenu }'>
 		 <li class="nav-item">
-			    <a href="${root }shop/shop_result" class="nav-link">주문 결과</a>
+			    <a href="${root }shop/shop_result?cart_idx=${obj.cart_idx}" class="nav-link">${obj.cart_name }</a>
 		</li>
 		
+		</c:forEach>
 		<c:forEach var='obj' items='${topMenuList }'>
 			
 			<li class="nav-item">

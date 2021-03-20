@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.community.beans.CartVO;
 import kr.co.community.beans.ProductBean;
-import kr.co.community.beans.ResultBean;
 import kr.co.community.service.ShopService;
 import kr.co.community.service.cartService;
 
@@ -70,22 +69,18 @@ public class shopController {
 	
 	
 	// 1. 장바구니 추가
-	@GetMapping("insert.do")
-    public String insert(@ModelAttribute CartVO vo, HttpSession session,Model model){
+	@GetMapping("/insert.do")
+    public String insert(@ModelAttribute CartVO vo, HttpSession session,Model model,@RequestParam(value="p_id",required=false) String p_id){
         // 장바구니에 기존 상품이 있는지 검사
-        int count = cartService.countCart(vo.getP_id());
-        
-        if(count == 0){
-            // 없으면 insert
-        	cartService.insert(vo);
-        } else {
-            // 있으면 update
-            cartService.updateCart(vo);
-        }
+      
+          cartService.insertCart(vo);
+      
          List<CartVO> listCart = cartService.listCart(); // 장바구니 정보 
        
          model.addAttribute("listCart",listCart);
-        return "shop/shop_result";
+        
+
+ 		return "shop/shop_result";
     }
 
     // 2. 장바구니 목록
@@ -106,12 +101,18 @@ public class shopController {
         mav.addObject("map", map);            // map 변수 저장
         return mav;
     }
-
+	
     // 3. 장바구니 삭제
-	@GetMapping("delete.do")
-    public String delete(@RequestParam int cart_id){
-        cartService.delete(cart_id);
-        return "redirect:/shop/cart/list.do";
+	@GetMapping("/delete.do")
+    public String delete(@RequestParam int cart_id,Model model){
+		
+		cartService.delete(cart_id);
+        
+        List<CartVO> listCart = cartService.listCart(); // 장바구니 정보 
+
+        model.addAttribute("listCart",listCart);
+        
+        return "shop/shop_result";
     }
 
     // 4. 장바구니 수정
