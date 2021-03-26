@@ -90,7 +90,7 @@ public class shopController {
             //String path = "C:\\Users\\doubles\\Desktop\\workspace\\gitSpring\\"
             //                + "spring02\\src\\main\\webapp\\WEB-INF\\views\\images";
             // 배포디렉토리 - 파일 업로드 경로
-            String path = "C:\\Users\\Administrator\\git2\\Community\\WebContent\\resources\\upload";
+            String path = "C:\\Users\\Administrator\\git2\\Community\\WebContent\\resources\\image";
             try {
                 new File(path).mkdirs(); // 디렉토리 생성
                 // 임시디렉토리(서버)에 저장된 파일을 지정된 디렉토리로 전송
@@ -211,33 +211,13 @@ public class shopController {
         mav.addObject("map", map);            // map 변수 저장
         return mav;
     }
+
+    
+	 @RequestMapping("/delete.do")
+	    public String delete(@RequestParam(value="p_id",required=false) int  p_id){
+	      
+	        shopservice.deleteProduct(p_id);
+	        return "shop/insert_success";
+	    }
 	
-    // 3. 장바구니 삭제
-	@GetMapping("/delete.do")
-    public String delete(@RequestParam int cart_id,Model model){
-		
-		cartService.delete(cart_id);
-        
-        List<CartVO> listCart = cartService.listCart(); // 장바구니 정보 
-
-        model.addAttribute("listCart",listCart);
-        
-        return "shop/shop_result";
-    }
-
-    // 4. 장바구니 수정
-	@GetMapping("update.do")
-    public String update(@RequestParam int[] amount, @RequestParam int[] p_id, HttpSession session) {
-       
-        // 레코드의 갯수 만큼 반복문 실행
-        for(int i=0; i<p_id.length; i++){
-            CartVO vo = new CartVO();
-            vo.setAmount(amount[i]);
-            vo.setP_id(p_id[i]);
-            cartService.modifyCart(vo);
-        }
-
-        return "redirect:/shop/cart/list.do";
-    }
-
 }

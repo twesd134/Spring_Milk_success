@@ -96,7 +96,7 @@
     </update>
 
     <!-- 05. 상품 레코드 삭제처리 -->
-    <delete id="deleteProduct" parameterType="kr.co.community.beans.ProductBean">
+    <delete id="deleteProduct"  parameterType="kr.co.community.beans.ProductBean">
      <![CDATA[
         DELETE FROM t_product
         WHERE p_id = #{p_id}
@@ -104,7 +104,7 @@
     </delete>
 
     <!-- 06. 삭제를 위한 상품 이미지 파일이름 select -->
-    <select id="fileInfo" parameterType="kr.co.community.beans.ProductBean">
+    <select id="fileInfo"  resultType="java.lang.Integer" parameterType="kr.co.community.beans.ProductBean">
        <![CDATA[
         SELECT   p_url AS p_url
         FROM t_product

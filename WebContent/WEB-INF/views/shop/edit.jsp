@@ -30,20 +30,6 @@ text-align: center;
 
 
 
-<script>
-
-function  productPhoto(){
-	if(productPhoto==null)
-
-		{
-		alert("이미지를 삽입해주세요");
-		location.href="${root}shop/edit?shop_idx=${shop_idx}&p_id=${obj.p_id}";
-		}
-	}
-}
-
-</script>
-
 </head>
 <body>
 
@@ -52,9 +38,6 @@ function  productPhoto(){
  <br><br><br>
 	<h2 alien="center">상품 수정페이지</h2>
 		<br><br><br> 
-		
-		
-		
 
 <form action='${root }shop/update.do' enctype="multipart/form-data" method="post">
     <table border="1">
@@ -63,33 +46,40 @@ function  productPhoto(){
         <tr>
             <td>상품 이미지</td>
             <td>
-            
-            
-                <img src="${root }images/${tempBean.p_url}" height="450" width="400">
-                
+                <img src="${root }images/${tempBean.p_url}" height="300" width="250">
                 <br>
-                
+          </td>
+        
+        <tr>
             <td><input type="file" name="productPhoto" id="productPhoto"></td>
-            </td>
+          
+          
+          
+             <td><input type="text" id="p_url" name="p_url" value="${tempBean.p_url}"></td> 
         </tr>
+        </tr>
+        
         <tr>
             <td>상품명</td>
             <td><input type="text" id="p_name" name="p_name" value="${tempBean.p_name}"></td>
         </tr>
+        
         <tr>
             <td>가격</td>
             <td><input type="number" id="p_price" name="p_price" value="${tempBean.p_price}">원</td>
         </tr>
+        
         <tr>
             <td>상품소개</td>
             <td><textarea id="p_desc" name="p_desc" rows="5" cols="60">${tempBean.p_desc}</textarea></td>
         </tr>
+        
         <tr>
             <td colspan="2" align="center">
                 <input type="hidden" name="p_id" value="${tempBean.p_id}">
                 <input type="submit" value="수정완료">
-                <input type="button" id="deleteBtn"value="삭제">
-                <input type="button" onclick="" value="상품목록">    
+                <input type="button" onclick=location.href="${root }shop/delete.do?p_id=${tempBean.p_id}" value="삭제">
+                <input type="button" onclick=location.href="${root }shop/shop_main?shop_idx=1" value="상품목록">    
             </td>
         </tr>
     </table>
