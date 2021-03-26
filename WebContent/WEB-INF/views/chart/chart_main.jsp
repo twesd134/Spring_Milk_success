@@ -126,7 +126,7 @@
 		<td>${obj.target }</td>
 		</tr>
 		
-		</table>
+		</table> 
 		</c:forEach>
 
 	

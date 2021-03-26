@@ -37,6 +37,7 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 		List<ChartInfoBean> chartMenu=topMenuService.getchartMenu();
 		List<ShopInfoBean> ShopMenu=topMenuService.getShopMenu();
 		List<cartInfoBean> cartMenu=topMenuService.getcartMenu();
+	
 		
 		request.setAttribute("cartMenu",cartMenu );
 		request.setAttribute("topMenuList", topMenuList);

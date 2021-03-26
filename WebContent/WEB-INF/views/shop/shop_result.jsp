@@ -1,3 +1,4 @@
+  
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -17,23 +18,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
 
-
-     <script>
-    $(document).ready(function(){
-        // 리스트 페이지로 이동
-        $("#btnList").click(function(){
-          
-        alert("삭제완료");
-        });
-    });
-</script>
+     
+     
 
 
 <style>
 body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
-
-
-
 </style>
 <!-- JSP Bean 활용해서 저기에 담아오자 -->
 
@@ -65,30 +55,35 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                 
                     
                     <td>
-                        <fmt:formatNumber pattern="###,###,###" value="${obj.p_price}"/>
+                        <fmt:formatNumber pattern="###,###,###" value="${obj.p_price}"/>원
                     </td>
                     
                     <td>${obj.amount}Box</td>
                     
                     <td>
-                        <fmt:formatNumber pattern="###,###,###" value="${obj.money}"/>
+                        <fmt:formatNumber pattern="###,###,###" value="${obj.money}"/>원
                     </td>
               
                     
-                    
-
+            
                     <td> 
-                    	<input type="button" onclick="location.href='${root}shop/delete.do?cart_id=${obj.cart_id}'"
-                    	  id="btnList" value="삭제">
+
+
+					<button type="button"  onclick=alert("삭제완료");location.href="${root}shop/delete.do?cart_id=${obj.cart_id}";>삭제하기
+						
+						
+						</button>
+						
+			
                     </td>	
-<%--                      <a href="${root}shop/delete.do?cart_id=${obj.cart_id}">삭제</a>  --%>
-                    			
-
-
-                    			
-                    		
                     
-                </tr>
+                    
+                    
+    </tr>
+    <tr>
+   
+    </tr>
+                    
             	
                 
                 

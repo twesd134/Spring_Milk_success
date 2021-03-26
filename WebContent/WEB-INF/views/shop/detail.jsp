@@ -32,25 +32,24 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 			<br><br><br>
 		
 		
-		<c:forEach var='obj' items="${getProduct }" >
 		<tr>
 		
 		<td rowspan="6" width="500" >
-       <img alt="" src="${root }images/${obj.p_url }" width="450" height="450"></td>
+       <img alt="" src="${root }images/${getProduct.p_url }" width="450" height="450"></td>
 		
 		
 		
 		
 		<tr>
-		<td width="250" alien="center"> 상품이름 : ${obj.p_name }</td> </tr>
+		<td width="250" alien="center"> 상품이름 : ${getProduct.p_name }</td> </tr>
 		
 		
 		
 		
 		<tr> 
-		<td width="250" alien="center"> 상품가격 : ${obj.p_price }</td> </tr>
+		<td width="250" alien="center"> 상품가격 : ${getProduct.p_price }원</td> </tr>
 		<tr>
-		<td width="250" alien="center"> 상품설명: ${obj.p_desc }</td>
+		<td width="250" alien="center"> 상품설명: ${getProduct.p_desc }</td>
 		
 		</tr>
 		<tr>
@@ -62,8 +61,8 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 		
 		<form name="form1" action="${root }shop/insert.do">
 		수량&nbsp;:&nbsp;
-		<input type="hidden" name="p_url" value="${obj.p_url }">
-		<input type="hidden" name="p_id" value="${obj.p_id}">
+		<input type="hidden" name="p_url" value="${getProduct.p_url }">
+		<input type="hidden" name="p_id" value="${getProduct.p_id}">
 		
 		<select name="amount">
 			
@@ -85,7 +84,6 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 		
 		 </td> </tr>
 		</form>
-	</c:forEach>
 	</table>
 	
 <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>

@@ -10,7 +10,9 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<!-- 요청 정보를 분석해서 컨트롤러를 선택하는 서블릿을 지정한다. -->
+	
 	<servlet>
         <servlet-name>appServlet</servlet-name>
         <!-- Spring MVC에서 제공하고 있는 기본 서블릿을 지정한다. -->
@@ -29,12 +31,14 @@
     </servlet>
     
     <!-- Bean을 정의할 xml 파일을 지정한다. -->
+    
     <context-param>
     	<param-name>contextConfigLocation</param-name>
     	<param-value>/WEB-INF/config/root-context.xml</param-value>
     </context-param>
     
     <!-- 리스너설정 -->
+    
     <listener>
     	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

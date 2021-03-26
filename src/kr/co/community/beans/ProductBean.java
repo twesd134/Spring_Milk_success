@@ -4,10 +4,32 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductBean {
 	
-	public String getP_id() {
+	
+	
+	
+	
+	public int getP_content_idx() {
+		return p_content_idx;
+	}
+	public void setP_content_idx(int p_content_idx) {
+		this.p_content_idx = p_content_idx;
+	}
+	public MultipartFile getProductPhoto() {
+		return productPhoto;
+	}
+	public void setProductPhoto(MultipartFile productPhoto) {
+		this.productPhoto = productPhoto;
+	}
+	public String getP_url() {
+		return p_url;
+	}
+	public void setP_url(String p_url) {
+		this.p_url = p_url;
+	}
+	public int getP_id() {
 		return p_id;
 	}
-	public void setP_id(String p_id) {
+	public void setP_id(int p_id) {
 		this.p_id = p_id;
 	}
 	public String getP_name() {
@@ -28,25 +50,14 @@ public class ProductBean {
 	public void setP_desc(String p_desc) {
 		this.p_desc = p_desc;
 	}
-	public String getP_url() {
-		return p_url;
-	}
-	public void setP_url(String p_url) {
-		this.p_url = p_url;
-	}
-	public MultipartFile getProductPhoto() {
-		return productPhoto;
-	}
-	public void setProductPhoto(MultipartFile productPhoto) {
-		this.productPhoto = productPhoto;
-	}
-	
-	
-	private String p_id;
+
+
+	private int p_id;
 	private String p_name;
 	private int p_price;
 	private String p_desc;
 	private String p_url;
 	private MultipartFile productPhoto;
+	private int p_content_idx;
 	
 }

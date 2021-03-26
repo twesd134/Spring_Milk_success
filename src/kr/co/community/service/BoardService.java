@@ -86,15 +86,21 @@ public class BoardService {
 		MultipartFile upload_file = modifyContentBean.getUpload_file();
 		
 		if(upload_file.getSize() > 0) {
+			
 			String file_name = saveUploadFile(upload_file);
+		
 			modifyContentBean.setContent_file(file_name);
+		
 		}
 		
 		boardDao.modifyContentInfo(modifyContentBean);
+	
 	}
 	
 	public void deleteContentInfo(int content_idx) {
+	
 		boardDao.deleteContentInfo(content_idx);
+	
 	}
 	
 	public PageBean getContentCnt(int content_board_idx, int currentPage) {

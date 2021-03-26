@@ -4,9 +4,7 @@
 
 <mapper namespace="cart">
 	
-	
-	
-    <insert id="insertCart"  parameterType="kr.co.community.beans.CartVO">
+	<insert id="insertCart"  parameterType="kr.co.community.beans.CartVO">
       <![CDATA[
         INSERT INTO tbl_cart(
             cart_id,p_id,amount

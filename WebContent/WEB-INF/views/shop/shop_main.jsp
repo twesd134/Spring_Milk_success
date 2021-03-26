@@ -33,10 +33,10 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 	<div>
 		<div class="card-body">
 			<h2 alien="center">상품목록</h2>
-			<table class="table table-hover" id='board_list'>
+			<table class="table table-hover" id='shop_list'>
 				<thead>
 					<tr>
-						<th class="text-center d-none d-md-table-cell">상품</th>
+						<th class="text-center d-none d-md-table-cell">상품번호</th>
 						<th class="text-center d-none d-md-table-cell">상품이미지</th>
 						<th class="text-center d-none d-md-table-cell">상품명</th>
 						<th class="text-center d-none d-md-table-cell">가격</th>
@@ -54,18 +54,22 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
             
             <td class="text-center d-none d-md-table-cell">
                <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}&p_url=${obj.p_url}">
+              
+              
                <img alt="" src="${root }images/${obj.p_url}" width="120" height="120">
                </a>
                
-               
             </td>
+            
             <td class="text-center d-none d-md-table-cell">
             
-               <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}&p_url=${obj.p_url}">${obj.p_name}
+               <a href="${root}shop/detail?shop_idx=${shop_idx}&p_id=${obj.p_id}&p_url=${obj.p_url}">${obj.p_name}</a>
+               <a href="${root}shop/edit?shop_idx=${shop_idx}&p_id=${obj.p_id}">[상품편집]</a>
+               
             </td>
            	
             <td class="text-center d-none d-md-table-cell">
-                <fmt:formatNumber value="${obj.p_price}"/>
+                <fmt:formatNumber value="${obj.p_price}"/>원
             </td>
       	  </tr>
          </c:forEach>
@@ -122,6 +126,13 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
          
 				</ul>
 			</div>
+			<div class="text-right">
+				<a href="${root }shop/write?shop_idx=${shop_idx}" class="btn btn-primary">상품등록</a>
+			</div>
+			
+			
+		</div>
+			
 	</div>
 	</div>
 </div>	

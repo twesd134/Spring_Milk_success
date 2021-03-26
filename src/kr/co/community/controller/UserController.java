@@ -73,6 +73,7 @@ public class UserController {
 		return "user/join_success";
 	}
 	
+	
 	@GetMapping("/modify")
 	public String modify(@ModelAttribute("modifyUserBean") UserBean modifyUserBean) {
 		
@@ -88,9 +89,13 @@ public class UserController {
 			return "user/modify";
 		}
 		
+		
 		userService.modifyUserInfo(modifyUserBean);
 		
+		
 		return "user/modify_success";
+		
+		
 	}
 	
 	@GetMapping("/logout")

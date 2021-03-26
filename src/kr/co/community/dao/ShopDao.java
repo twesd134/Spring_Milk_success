@@ -26,9 +26,9 @@ public class ShopDao {
 		return sqlSessionTemplate.selectList("shop.listProduct",shop_idx,rowBounds);
 	}
 	
-	public List<ProductBean> getProduct(String p_id)
+	public ProductBean getProduct(int p_id)
 	{
-		return sqlSessionTemplate.selectList("shop.getProduct",p_id);
+		return sqlSessionTemplate.selectOne("shop.getProduct",p_id);
 	}
 	
 	public List<ProductBean> Result()
@@ -39,4 +39,23 @@ public class ShopDao {
 	public int getContentCnt(int shop_idx) {
 		return sqlSessionTemplate.selectOne("shop.getContentCnt", shop_idx);
 	}
+	
+	  public void insertProduct(ProductBean writeBean) {
+		sqlSessionTemplate.insert("shop.insertProduct", writeBean);
+	    }
+	  
+	  public void updateProduct(ProductBean bean) {
+		  sqlSessionTemplate.selectOne("shop.updateProduct", bean);
+	    } 
+	  public void deleteProduct(int p_id) {
+		  sqlSessionTemplate.delete("shop.deleteProduct", p_id);
+	    } 
+	  public String fileInfo(int p_id) {
+	        return sqlSessionTemplate.selectOne("shop.fileInfo",p_id);
+	    }
+	  
+	  public List<ProductBean> detailProduct(int p_id) {
+			return sqlSessionTemplate.selectList("shop.detailProduct", p_id);
+		}
+	
 }

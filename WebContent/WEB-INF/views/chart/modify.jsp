@@ -113,7 +113,7 @@ input[type="checkbox"] {
 		
 	
 		<label for="target">목표치</label>
-		<input type="text" name="target" id="chart_date" value="">
+		<input type="text" name="target" id="target" value="">
 		 <div class="clear"></div>
 		
 		

@@ -10,6 +10,24 @@
 		]]>
 	</select>
 	
+	
+	
+
+	<select id="detailProduct" parameterType="java.lang.Integer"  resultType="kr.co.community.beans.ProductBean">
+		<![CDATA[
+		select 
+		p_id,
+    	p_name,
+    	p_price,
+    	p_desc,
+    	p_url
+		from 
+		t_product 
+		where p_id = #{p_id}
+		]]>
+	</select>
+	
+	
 <select id="listProduct" parameterType="String" resultType="kr.co.community.beans.ProductBean">
 	<![CDATA[
 		select p_id,
@@ -24,7 +42,7 @@
 	
 
 
-<select id="getProduct" parameterType="String" resultType="kr.co.community.beans.ProductBean">
+<select id="getProduct"  parameterType="java.lang.Integer"  resultType="kr.co.community.beans.ProductBean">
 	<![CDATA[
 		select 
 		p_id,
@@ -34,7 +52,7 @@
     	p_url
 		from 
 		t_product 
-		where p_id = #{p_id,jdbcType=VARCHAR}
+		where p_id = #{p_id}
 	]]>
 	</select>
 	
@@ -43,4 +61,55 @@
 			select count(*) from t_product
 		]]>
 	</select>
+	
+	
+	<insert id="insertProduct" parameterType="kr.co.community.beans.ProductBean">
+	
+	<selectKey keyProperty="p_id" order="BEFORE" resultType="java.lang.Integer">
+			select SHOP_SEQ.nextval from dual
+		</selectKey>
+	<![CDATA[
+        INSERT INTO t_product(p_id,p_name,p_price,p_desc,p_url)
+        VALUES (
+            SHOP_SEQ.NEXTVAL
+            , #{p_name}
+            , #{p_price}
+            , #{p_desc}
+            , #{p_url}
+        )
+        	]]>
+    </insert>
+    
+    
+       <!-- 04. 상품 수정/편집하기 -->
+    <update id="updateProduct"  parameterType="kr.co.community.beans.ProductBean">
+    <![CDATA[
+        UPDATE t_product
+        SET p_name = #{p_name}
+            , p_price = #{p_price}
+            , p_desc = #{p_desc}
+            , p_url = #{p_url}
+        WHERE
+            p_id = #{p_id}
+            
+       ]]>     
+    </update>
+
+    <!-- 05. 상품 레코드 삭제처리 -->
+    <delete id="deleteProduct" parameterType="kr.co.community.beans.ProductBean">
+     <![CDATA[
+        DELETE FROM t_product
+        WHERE p_id = #{p_id}
+     ]]>  
+    </delete>
+
+    <!-- 06. 삭제를 위한 상품 이미지 파일이름 select -->
+    <select id="fileInfo" parameterType="kr.co.community.beans.ProductBean">
+       <![CDATA[
+        SELECT   p_url AS p_url
+        FROM t_product
+        WHERE p_id = #{p_id}
+   	]]>  
+    </select>
+    
 </mapper>
