@@ -6,6 +6,12 @@ public class CartVO {
 		
 	
 		
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public int getUser_idx() {
 		return user_idx;
 	}
@@ -78,6 +84,7 @@ public class CartVO {
 	
 	private String user_id;
 	private String user_name;
+	private String address;
 	private int cart_id; // 장바구니 번호
 	private int p_id; // 상품 번호
 	private String p_name; // 상품 이름

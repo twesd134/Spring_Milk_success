@@ -10,6 +10,10 @@
 	        data-target="#navMenu">
 		<span class="navbar-toggler-icon"></span>        
 	</button>
+
+<jsp:useBean id="Bean" class = "kr.co.community.beans.CartVO">
+	<jsp:setProperty name="Bean" property="*"/>
+</jsp:useBean>
 	
 	<div class="collapse navbar-collapse" id="navMenu">
 		
@@ -24,7 +28,7 @@
 		
 		<c:forEach var='obj' items='${cartMenu }'>
 		 <li class="nav-item">
-			    <a href="${root }shop/shop_result?cart_idx=${obj.cart_idx}" class="nav-link">${obj.cart_name }</a>
+			    <a href="${root }shop/shop_result?cart_idx=${obj.cart_idx}&user_id=<%=session.getAttribute("user_id") %>" class="nav-link">${obj.cart_name }</a>
 		</li>
 		
 		</c:forEach>

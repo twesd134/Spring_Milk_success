@@ -20,6 +20,7 @@
    		   select 
             u.user_id AS user_id,
             u.user_name AS user_name,
+            u.address AS address,
    		    c.cart_id AS cart_id,
             p.p_url AS p_url,
             p.p_id As p_id,

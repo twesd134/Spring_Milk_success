@@ -1,6 +1,7 @@
 package kr.co.community.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +33,20 @@ public class UserController {
 	private UserBean loginUserBean;
 
 	@GetMapping("/login")
-	public String login(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
-						@RequestParam(value = "fail", defaultValue = "false") boolean fail,
+	public String login(HttpSession session,@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
+			@RequestParam(value = "user_id", defaultValue = "false") String user_id,			
+			@RequestParam(value = "fail", defaultValue = "false") boolean fail,
 						Model model) {
 		
 		model.addAttribute("fail", fail);
-	
+		session.setAttribute("user_id",user_id);
 		return "user/login";
 	}
 	
 	@PostMapping("/login_pro")
-	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, BindingResult result) {
+	public String login_pro(HttpSession session,@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, 
+			@RequestParam(value = "user_id", defaultValue = "false") String user_id,
+			BindingResult result) {
 		
 		if(result.hasErrors()) {
 			
@@ -52,6 +56,7 @@ public class UserController {
 		userService.getLoginUserInfo(tempLoginUserBean);
 		
 		if(loginUserBean.isUserLogin() == true) {
+			session.setAttribute("user_id",user_id);
 			return "user/login_success";
 		} else {
 			return "user/login_fail";

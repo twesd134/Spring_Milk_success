@@ -39,6 +39,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                 <tr>
                 	<th>주문자 아이디</th>
                 	<th>주문자 이름</th>
+                	<th>주소</th>
                 	<th>상품이미지</th>
                 	<th>제품번호</th>
                     <th>가격</th>
@@ -51,6 +52,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                 <tr>
                 <td>${obj.user_id}</td>
                 <td>${obj.user_name }</td>
+                <td>${obj.address }</td>
               <td> <img alt="" src="${root }images/${obj.p_url}" width="120" height="120"></td>
                		<td>${obj.p_id }</td>
                 	

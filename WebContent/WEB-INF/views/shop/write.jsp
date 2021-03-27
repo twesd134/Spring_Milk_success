@@ -18,10 +18,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
 <style>
 body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
+ 
+table{
+width:60%;
+height: 100px;
+margin: auto;
 
-
-
+text-align: center;
 </style>
+
+
+
+</head>
 </head>
 <script>
 $(document).ready(function(){
@@ -60,7 +68,7 @@ $(document).ready(function(){
 
 <body>
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
-
+ <br><br><br>
 <h2>상품 등록</h2>
 <form id="form1" name="form1" enctype="multipart/form-data" method="post">
     <table border="1">

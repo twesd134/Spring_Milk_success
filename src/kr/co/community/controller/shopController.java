@@ -176,7 +176,7 @@ public class shopController {
 	
 	
 	// 1. 장바구니 추가
-	@GetMapping("/insert.shop")
+	@PostMapping("/insert.shop")
     public String insert(@RequestParam(value="user_id",required=false) String  user_id,
     		@ModelAttribute CartVO vo, HttpSession session,Model model,@RequestParam(value="p_id",required=false) String p_id){
         // 장바구니에 기존 상품이 있는지 검사
@@ -188,7 +188,7 @@ public class shopController {
          model.addAttribute("listCart",listCart);
         
 
- 		return "shop/shop_result";
+ 		return "shop/insert_shop_success";
     }
 
 	
