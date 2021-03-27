@@ -45,7 +45,8 @@ public class UserController {
 	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, BindingResult result) {
 		
 		if(result.hasErrors()) {
-			return "user/login";
+			
+			return "user/modify_not_success";
 		}
 		
 		userService.getLoginUserInfo(tempLoginUserBean);
@@ -86,6 +87,7 @@ public class UserController {
 	public String modify_pro(@Valid @ModelAttribute("modifyUserBean") UserBean modifyUserBean, BindingResult result) {
 		
 		if(result.hasErrors()) {
+			
 			return "user/modify";
 		}
 		

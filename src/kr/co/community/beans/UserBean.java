@@ -4,6 +4,14 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserBean {
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	private int user_idx;
 	
 	@Size(min=2, max=4)
@@ -22,8 +30,13 @@ public class UserBean {
 	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_pw2;
 	
+
+	private String address;
+	
+	
 	private boolean userIdExist;
 	private boolean userLogin;
+	
 	
 	public UserBean() {
 		this.userIdExist = false;

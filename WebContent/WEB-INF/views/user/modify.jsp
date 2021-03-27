@@ -29,7 +29,7 @@
 					<form:form action='${root }user/modify_pro' method='post' modelAttribute="modifyUserBean">
 						<div class="form-group">
 							<form:label path="user_name">이름</form:label>
-							<form:input path="user_name" class='form-control' readonly="true"/>
+							<form:input path="user_name" class='form-control'/>
 						</div>
 						<div class="form-group">
 							<form:label path="user_id">아이디</form:label>
@@ -45,6 +45,15 @@
 							<form:password path="user_pw2" class='form-control'/>
 							<form:errors path='user_pw2' style='color:red'/>
 						</div>
+						
+						<div class="form-group">
+							<form:label path="address">주소변경</form:label>
+							<form:input path="address" class='form-control'/>
+							<form:errors path='address' style='color:red'/>
+						</div>
+						
+						
+						
 						<div class="form-group">
 							<div class="text-right">
 								<form:button class='btn btn-primary'>정보수정</form:button>
