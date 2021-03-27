@@ -46,7 +46,6 @@ public class shopController {
 	@Autowired
 	private cartService cartService;
 	
-	
 	@GetMapping("/shop_main")
 	public String shop_main(@RequestParam("shop_idx") int shop_idx,
 			   @RequestParam(value = "page", defaultValue = "1") int page,
@@ -78,7 +77,6 @@ public class shopController {
     	writeBean.setP_content_idx(shop_idx);
         return "shop/write";
     }
-
     // 4. 상품등록 처리 매핑
     @RequestMapping("/insert.do")
     public String insert(@Valid @ModelAttribute("writeBean") ProductBean writeBean){
@@ -154,12 +152,11 @@ public class shopController {
 	
 	
 	@GetMapping("/shop_result")
-	public String shop_result(HttpSession session, ModelAndView mav,Model model) 
+	public String shop_result(@RequestParam(value="user_id",required=false) String user_id,HttpSession session, ModelAndView mav,Model model) 
 	{
 		  	
-	        List<CartVO> listCart = cartService.listCart(); // 장바구니 정보 
+	        List<CartVO> listCart = cartService.listCart(user_id); // 장바구니 정보 
 	        model.addAttribute("listCart",listCart);
-			model.addAttribute("loginUserBean", loginUserBean);
 	        return "shop/shop_result";
 	}
 	
@@ -179,13 +176,14 @@ public class shopController {
 	
 	
 	// 1. 장바구니 추가
-	@GetMapping("/insert.do")
-    public String insert(@ModelAttribute CartVO vo, HttpSession session,Model model,@RequestParam(value="p_id",required=false) String p_id){
+	@GetMapping("/insert.shop")
+    public String insert(@RequestParam(value="user_id",required=false) String  user_id,
+    		@ModelAttribute CartVO vo, HttpSession session,Model model,@RequestParam(value="p_id",required=false) String p_id){
         // 장바구니에 기존 상품이 있는지 검사
       
           cartService.insertCart(vo);
       
-         List<CartVO> listCart = cartService.listCart(); // 장바구니 정보 
+         List<CartVO> listCart = cartService.listCart(user_id); // 장바구니 정보 
        
          model.addAttribute("listCart",listCart);
         
@@ -193,25 +191,7 @@ public class shopController {
  		return "shop/shop_result";
     }
 
-    // 2. 장바구니 목록
-	@GetMapping("list.do")
-    public ModelAndView list(HttpSession session, ModelAndView mav){
-        Map<String, Object> map = new HashMap<String, Object>();
-        List<CartVO> list = cartService.listCart(); // 장바구니 정보 
-        int sumMoney = cartService.sumMoney(); // 장바구니 전체 금액 호출
-        // 장바구니 전체 긍액에 따라 배송비 구분
-        // 배송료(10만원이상 => 무료, 미만 => 2500원)
-        int fee = sumMoney >= 100000 ? 0 : 2500;
-        map.put("list", list);                // 장바구니 정보를 map에 저장
-        map.put("count", list.size());        // 장바구니 상품의 유무
-        map.put("sumMoney", sumMoney);        // 장바구니 전체 금액
-        map.put("fee", fee);                 // 배송금액
-        map.put("allSum", sumMoney+fee);    // 주문 상품 전체 금액
-        mav.setViewName("shop/cartList");    // view(jsp)의 이름 저장
-        mav.addObject("map", map);            // map 변수 저장
-        return mav;
-    }
-
+	
     
 	 @RequestMapping("/delete.do")
 	    public String delete(@RequestParam(value="p_id",required=false) int  p_id){
@@ -219,5 +199,21 @@ public class shopController {
 	        shopservice.deleteProduct(p_id);
 	        return "shop/insert_success";
 	    }
+	 
+	 // 3. 장바구니 삭제
+		@GetMapping("/delete")
+	    public String delete(@RequestParam(value="user_id",required=false) String  user_id,
+	    		@RequestParam(value="cart_id",required=false) int  cart_id,Model model){
+			
+			cartService.delete(cart_id);
+	        
+	        List<CartVO> listCart = cartService.listCart(user_id); // 장바구니 정보 
+
+	        model.addAttribute("listCart",listCart);
+	        
+	        return "shop/shop_result";
+	    }
+	 
+	 
 	
 }

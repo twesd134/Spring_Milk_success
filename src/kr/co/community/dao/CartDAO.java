@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.community.beans.CartVO;
 import kr.co.community.beans.ProductBean;
+import kr.co.community.beans.UserBean;
 
 @Repository
 public class CartDAO {
@@ -28,8 +29,8 @@ public class CartDAO {
     
     // 2. 장바구니 목록
     
-    public List<CartVO> listCart() {
-    	return sqlSessionTemplate.selectList("cart.listCart");
+    public List<CartVO> listCart(String user_id) {
+    	return sqlSessionTemplate.selectList("cart.listCart",user_id);
     }
     
     // 3. 장바구니 삭제

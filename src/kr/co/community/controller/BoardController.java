@@ -74,6 +74,8 @@ public class BoardController {
 		model.addAttribute("page", page);
 		
 		return "board/read";
+	
+		
 	}
 	
 	

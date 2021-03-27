@@ -6,6 +6,25 @@ public class CartVO {
 		
 	
 		
+	public int getUser_idx() {
+		return user_idx;
+	}
+	public void setUser_idx(int user_idx) {
+		this.user_idx = user_idx;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
 	public String getP_url() {
 		return p_url;
 	}
@@ -57,7 +76,8 @@ public class CartVO {
 	}
 	
 	
-	
+	private String user_id;
+	private String user_name;
 	private int cart_id; // 장바구니 번호
 	private int p_id; // 상품 번호
 	private String p_name; // 상품 이름
@@ -65,7 +85,7 @@ public class CartVO {
 	private String p_url;
 	private int amount; // 구매 수량
 	private int money; // 상품 가격
-	
+	private int user_idx;
 
 	private MultipartFile productPhoto;
 	

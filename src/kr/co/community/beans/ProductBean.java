@@ -8,6 +8,8 @@ public class ProductBean {
 	
 	
 	
+	
+	
 	public int getP_content_idx() {
 		return p_content_idx;
 	}

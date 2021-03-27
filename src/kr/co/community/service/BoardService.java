@@ -38,7 +38,7 @@ public class BoardService {
 	
 	private String saveUploadFile(MultipartFile upload_file) {
 		
-		String file_name = System.currentTimeMillis() + "_" + upload_file.getOriginalFilename();
+		String file_name = upload_file.getOriginalFilename();
 		
 		try {
 			upload_file.transferTo(new File(path_upload + "/" + file_name));

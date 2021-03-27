@@ -59,7 +59,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 			
 		
 		
-		<form name="form1" action="${root }shop/insert.do">
+		<form name="form1" action="${root }shop/insert.shop">
 		수량&nbsp;:&nbsp;
 		<input type="hidden" name="p_url" value="${getProduct.p_url }">
 		<input type="hidden" name="p_id" value="${getProduct.p_id}">
