@@ -91,10 +91,7 @@ public class UserController {
 	@PostMapping("/modify_pro")
 	public String modify_pro(@Valid @ModelAttribute("modifyUserBean") UserBean modifyUserBean, BindingResult result) {
 		
-		if(result.hasErrors()) {
-			
-			return "user/modify";
-		}
+		
 		
 		
 		userService.modifyUserInfo(modifyUserBean);

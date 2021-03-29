@@ -18,6 +18,8 @@
     <select id="listCart" resultType="kr.co.community.beans.CartVO" parameterType="String">
      <![CDATA[
    		   select 
+   		   TO_CHAR(SYSDATE, 'YYYY-MM-DD') as nowTime,
+           TO_CHAR(SYSDATE+3, 'YYYY-MM-DD') as arriveTime,
             u.user_id AS user_id,
             u.user_name AS user_name,
             u.address AS address,

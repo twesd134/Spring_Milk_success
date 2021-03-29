@@ -31,7 +31,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 
 	<table style="width:60%; height: 100px; margin: auto; text-align: center;">
 	<br><br><br>
-	<h2 alien="center">장바구니</h2>
+	<h2 alien="center">주문목록</h2>
 			<br><br><br>
 	
     
@@ -40,6 +40,8 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                 	<th>주문자 아이디</th>
                 	<th>주문자 이름</th>
                 	<th>주소</th>
+                	<th>주문한날짜</th>
+                	<th>도착예정날짜</th>
                 	<th>상품이미지</th>
                 	<th>제품번호</th>
                     <th>가격</th>
@@ -53,6 +55,8 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
                 <td>${obj.user_id}</td>
                 <td>${obj.user_name }</td>
                 <td>${obj.address }</td>
+                <td>${obj.nowTime }</td>
+                <td>${obj.arriveTime}</td>
               <td> <img alt="" src="${root }images/${obj.p_url}" width="120" height="120"></td>
                		<td>${obj.p_id }</td>
                 	

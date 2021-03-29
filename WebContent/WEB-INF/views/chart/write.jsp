@@ -19,7 +19,6 @@
 <script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
 
 <body>
-<%-- 	<form action="${root }shop/detail"  modelAttribute="ProductBean" enctype="multipart/form-data"> --%>
 	<table style="width:60%; height: 100px; margin: auto; text-align: center;">
 
 <br><br><br>

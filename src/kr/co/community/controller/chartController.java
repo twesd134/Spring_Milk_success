@@ -66,10 +66,9 @@ public class chartController {
 	  }
 	
 	  @GetMapping("/write") 
-	  public String write_chart(@ModelAttribute("writechart") ChartBean writechart,
-			  @RequestParam(value="chart_info_idx",required=false) int chart_info_idx )
+	  public String write_chart()
 	  {
-		  writechart.setId(chart_info_idx);
+		 
 		
 		  
 		  return "chart/write";

@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var='root' value="${pageContext.request.contextPath }/"/>
+
+
+
 <!-- 상단 메뉴 부분 -->
 <nav class="navbar navbar-expand-md bg-skyblue navbar-white fixed-top shadow-lg">
 	<a class="navbar-brand" href="${root }main">Community</a>
@@ -41,13 +44,15 @@
 			</c:forEach>
 		
 		<c:forEach var='obj' items='${chartMenu }'>
+		
 			
-			<li class="nav-item">
-				<a href="${root }chart/chart_main?chart_info_idx=${obj.chart_info_idx }" class="nav-link">${obj.chart_info_name }</a>
+			<li>
+				<a href="${root }chart/chart_main?chart_info_idx=${obj.chart_info_idx }&user_id=<%=session.getAttribute("user_id") %>" class="nav-link">${obj.chart_info_name }</a>
 			</li> 
 		
 		</c:forEach>
 		
+		   
 		</ul>
 		
 	

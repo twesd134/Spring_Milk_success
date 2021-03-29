@@ -20,7 +20,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"></script>
-
+ 
 	
 
 </head>
@@ -37,15 +37,16 @@
 	<tr height="100">
 	
 		<td align="center" >
-	
- 
+		
+		
 		<form action="${root}chart/chart_main_pro" modelAttribute="chartBean" enctype="multipart/form-data">
 		
  		
 		<select name="chart_date" selected="true">
-	
-					
+		
+		
 	 	<option value="">전체보기</option>
+		
 		<option value="2020-01">1월</option>
 		<option value="2020-02">2월</option>
 		<option value="2020-03">3월</option>
@@ -58,12 +59,12 @@
 		<option value="2020-10">10월</option>
 		<option value="2020-11">11월</option>
 		<option value="2020-12">12월</option>
+		
 	</select> 
 	
 
 
 	<input type="submit" value="검색">
- 	<a href="${root }chart/chart_main?chart_info_idx=1">차트CRUD하기 </a> &nbsp;
 
 	<td>${Bean.chart_date}월</td>
 	</form>
@@ -79,7 +80,7 @@
 			
 
 <br>
-	
+	 
 		<br> 
 		
 	<tr>
@@ -145,7 +146,7 @@
 				
 				
 				<c:forEach var='obj' items="${getonechart }">
-				'${obj.chart_date}',
+				'${obj.chart_date}', 
 				</c:forEach>
 		
 /* 			'1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21',

@@ -1,11 +1,24 @@
 package kr.co.community.beans;
 
+import java.sql.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CartVO {
 		
 	
 		
+	public Date getNowTime() {
+		return nowTime;
+	}
+	public void setNowTime(Date nowTime) {
+		this.nowTime = nowTime;
+	}
+	public Date getArriveTime() {
+		return arriveTime;
+	}
+	public void setArriveTime(Date arriveTime) {
+		this.arriveTime = arriveTime;
+	}
 	public String getAddress() {
 		return address;
 	}
@@ -93,7 +106,8 @@ public class CartVO {
 	private int amount; // 구매 수량
 	private int money; // 상품 가격
 	private int user_idx;
-
+	private Date nowTime;
+	private Date arriveTime;
 	private MultipartFile productPhoto;
 	
 }

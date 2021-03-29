@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var='root' value='${pageContext.request.contextPath}/'/>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+ <c:set var='root' value='${pageContext.request.contextPath}/'/>
     
 <!DOCTYPE html>
 <html>
@@ -9,6 +10,33 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
+
+<script>
+//달력 하나씩 사용할때
+$(function() {
+  $( "#11" ).datepicker({
+    dateFormat: 'yy-mm-dd',
+    prevText: '이전 달',
+    nextText: '다음 달',
+    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    dayNames: ['일','월','화','수','목','금','토'],
+    dayNamesShort: ['일','월','화','수','목','금','토'],
+    dayNamesMin: ['일','월','화','수','목','금','토'],
+    showMonthAfterYear: true,
+    changeMonth: true,
+    changeYear: true,
+    yearSuffix: '년'
+  });
+});
+</script>
 
 <style>
 .member {
@@ -114,15 +142,15 @@ input[type="checkbox"] {
  	  <div id="wrap">
 		<h1 class="member">삭제하기</h1>
    <div class="form">
-      <label for="chart_date">삭제할 날짜</label>
-		<input type="text" name="chart_date" id="chart_date" value=""  placeholder="날짜 입력 하세요">
-		<div class="clear"></div>
+      <label for="11">일자</label>
+	<input type="text" id="11" name="chart_date"  placeholder="날짜 입력">
+	<input type="button" value="달력" onclick="$('#11').datepicker('show');" />
+	   
 		
 		<div class="form4">
 		<lable><input type="reset" value="취소"></lable>
 		
         <lable><input type="submit" value="삭제" /></lable>
-        <lable><input type="button" onclick="window.open('chartMain.jsp')"value="차트 메인 페이지"/></lable>
 		</div>
         </div>
         </div>
