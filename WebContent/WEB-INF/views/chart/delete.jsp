@@ -18,8 +18,24 @@
 
 <script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
 
+
+
 <script>
+function delOk(){
+    if(!confirm('삭제하시면 복구할수 없습니다. \n 정말로 삭제하시겠습니까??')){
+        return false;
+    }
+}
+</script>
+
+
+
+<script>
+
+
 //달력 하나씩 사용할때
+
+
 $(function() {
   $( "#11" ).datepicker({
     dateFormat: 'yy-mm-dd',
@@ -135,7 +151,7 @@ input[type="checkbox"] {
 
 <body>
 
-	<a href='${root }chart/chart_main?chart_info_idx=1' value="차트 메인 페이지">차트 메인 페이지</a>
+	<input type="button" id="member" value="차트메인페이지" onclick="location.href='${root}chart/chart_main?chart_info_idx=1'">
 
 
  <form action="${root }chart/delete_pro" method="post"  modelAttribute="chartBean" enctype="multipart/form-data">
@@ -145,18 +161,20 @@ input[type="checkbox"] {
       <label for="11">일자</label>
 	<input type="text" id="11" name="chart_date"  placeholder="날짜 입력">
 	<input type="button" value="달력" onclick="$('#11').datepicker('show');" />
-	   
+	   	
 		
 		<div class="form4">
+		
 		<lable><input type="reset" value="취소"></lable>
 		
-        <lable><input type="submit" value="삭제" /></lable>
+        <lable><input type="submit" value="삭제" onclick="if(!confirm('삭제하시면 복구할수 없습니다. \n 정말로 삭제하시겠습니까??')){return false;}" /></lable>
+		
 		</div>
-        </div>
+        
         </div>
         
-       </tr>
-        
+        </div>
+         </tr>
         
     </table>
     </form>

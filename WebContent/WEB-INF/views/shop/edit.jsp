@@ -46,7 +46,7 @@ text-align: center;
         <tr>
             <td>상품 이미지</td>
             <td>
-                <img src="${root }images/${tempBean.p_url}" height="300" width="250">
+                <img src="${root }upload/${tempBean.p_url}" height="300" width="250">
                 <br>
           </td>
         

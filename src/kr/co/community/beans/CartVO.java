@@ -7,6 +7,18 @@ public class CartVO {
 		
 	
 		
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getArrive() {
+		return arrive;
+	}
+	public void setArrive(String arrive) {
+		this.arrive = arrive;
+	}
 	public Date getNowTime() {
 		return nowTime;
 	}
@@ -108,6 +120,8 @@ public class CartVO {
 	private int user_idx;
 	private Date nowTime;
 	private Date arriveTime;
+	private String arrive;
 	private MultipartFile productPhoto;
+	private String message;
 	
 }

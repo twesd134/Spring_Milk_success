@@ -7,9 +7,9 @@
 	<insert id="insertCart"  parameterType="kr.co.community.beans.CartVO">
       <![CDATA[
         INSERT INTO tbl_cart(
-            cart_id,p_id,amount,user_idx
+            cart_id,p_id,amount,user_idx,message
         ) VALUES (
-            seq_cart.NEXTVAL,#{p_id}, #{amount},#{user_idx}
+            seq_cart.NEXTVAL,#{p_id}, #{amount},#{user_idx},#{message}
         )
          ]]>
         
@@ -18,8 +18,16 @@
     <select id="listCart" resultType="kr.co.community.beans.CartVO" parameterType="String">
      <![CDATA[
    		   select 
-   		   TO_CHAR(SYSDATE, 'YYYY-MM-DD') as nowTime,
-           TO_CHAR(SYSDATE+3, 'YYYY-MM-DD') as arriveTime,
+   		     TO_CHAR(SYSDATE, 'YYYY-MM-DD') as nowTime,
+             p_name,
+           CASE p_name WHEN '바나나우유' THEN TO_CHAR(SYSDATE+4, 'YYYY-MM-DD')
+                       WHEN '제주우유' THEN TO_CHAR(SYSDATE+5, 'YYYY-MM-DD')
+            ELSE
+            TO_CHAR(SYSDATE-1, 'YYYY-MM-DD')
+            END AS "arrive"
+           ,
+           	c.cart_id AS cart_id,
+           	c.message AS message,
             u.user_id AS user_id,
             u.user_name AS user_name,
             u.address AS address,

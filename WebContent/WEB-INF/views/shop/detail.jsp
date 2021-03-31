@@ -35,7 +35,7 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 		<tr>
 		
 		<td rowspan="6" width="500" >
-       <img alt="" src="${root }images/${getProduct.p_url }" width="450" height="450"></td>
+       <img alt="" src="${root }upload/${getProduct.p_url }" width="450" height="450"></td>
 		
 		
 		
@@ -54,15 +54,23 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 		</tr>
 		<tr>
 		
-		<td width="250" alien="center" colspan="2">
+		<td>
 	
-			
-		
-		
 		<form name="form1" action="${root }shop/insert.shop" method="post">
+		배송하기전 메세지
+		<input type="text" name="message" value="">
+		
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
 		수량&nbsp;:&nbsp;
 		<input type="hidden" name="p_url" value="${getProduct.p_url }">
 		<input type="hidden" name="p_id" value="${getProduct.p_id}">
+		
+		
+		
 		
 		<select name="amount">
 			
@@ -78,11 +86,11 @@ body { text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ }
 			<option value="10">10Box</option>
 		
 		</select>
-		
-		<input type="submit" value="장바구니에 담기">
+	
+		<input type="submit" value="주문하기">
 		<input type="button" value="상품목록" onclick="location.href='${root }shop/shop_main?shop_idx=${shop_idx }'">
 		
-		 </td> </tr>
+		 </tr>
 		</form>
 	</table>
 	

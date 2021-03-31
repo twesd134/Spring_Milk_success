@@ -84,21 +84,11 @@ public class shopController {
         // 첨부파일(상품사진)이 있으면
         if(!writeBean.getProductPhoto().isEmpty()){
             filename = writeBean.getProductPhoto().getOriginalFilename();
-            // 개발디렉토리 - 파일 업로드 경로
-            //String path = "C:\\Users\\doubles\\Desktop\\workspace\\gitSpring\\"
-            //                + "spring02\\src\\main\\webapp\\WEB-INF\\views\\images";
-            // 배포디렉토리 - 파일 업로드 경로
-            String path = "C:\\Users\\Administrator\\git2\\Community\\WebContent\\resources\\image";
-            try {
-                new File(path).mkdirs(); // 디렉토리 생성
-                // 임시디렉토리(서버)에 저장된 파일을 지정된 디렉토리로 전송
-                writeBean.getProductPhoto().transferTo(new File(path+filename));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            writeBean.setP_url(filename);
-            shopservice.insertProduct(writeBean);
+            
+         
         }
+        writeBean.setP_url(filename);
+        shopservice.insertProduct(writeBean);
         return "shop/insert_success";
     }
     
@@ -123,13 +113,7 @@ public class shopController {
         modifybean.setP_id(p_id);
         
         model.addAttribute("tempBean",tempBean);
-        /*
-        private int p_id;
-    	private String p_name;
-    	private int p_price;
-    	private String p_desc;
-    	private String p_url;
-    	private MultipartFile productPhoto; */
+        
         return "shop/edit";
     }
     
@@ -211,7 +195,8 @@ public class shopController {
 
 	        model.addAttribute("listCart",listCart);
 	        
-	        return "shop/shop_result";
+	        return "shop/shop_delete_success";
+	        
 	    }
 	 
 	 

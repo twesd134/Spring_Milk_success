@@ -10,6 +10,7 @@ public class ProductBean {
 	
 	
 	
+	
 	public int getP_content_idx() {
 		return p_content_idx;
 	}
@@ -61,5 +62,4 @@ public class ProductBean {
 	private String p_url;
 	private MultipartFile productPhoto;
 	private int p_content_idx;
-	
 }

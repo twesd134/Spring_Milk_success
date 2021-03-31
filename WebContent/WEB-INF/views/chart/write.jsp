@@ -27,8 +27,7 @@
 	<form action="${root }chart/write_pro" name="chartform" modelAttribute="chartBean" enctype="multipart/form-data" method='post'>
 		
 	
-	
-	<a href='${root }chart/chart_main?chart_info_idx=1' value="차트 메인 페이지">차트 메인 페이지</a>
+	<input type="button" id="member" value="차트메인페이지" onclick="location.href='${root}chart/chart_main?chart_info_idx=1'">
 	
 	
 	

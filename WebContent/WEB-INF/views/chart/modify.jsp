@@ -124,7 +124,7 @@ input[type="checkbox"] {
 
 <body>
 
-		<a href='${root }chart/chart_main?chart_info_idx=1' value="차트 메인 페이지">차트 메인 페이지</a>
+	<input type="button" id="member" value="차트메인페이지" onclick="location.href='${root}chart/chart_main?chart_info_idx=1'">
 	
 	<form action="${root }chart/modify_pro"" method="post">
 	  <div id="wrap">
