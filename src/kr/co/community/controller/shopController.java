@@ -81,7 +81,6 @@ public class shopController {
     @RequestMapping("/insert.do")
     public String insert(@Valid @ModelAttribute("writeBean") ProductBean writeBean){
         String filename = "";
-        // 첨부파일(상품사진)이 있으면
         if(!writeBean.getProductPhoto().isEmpty()){
             filename = writeBean.getProductPhoto().getOriginalFilename();
             
@@ -159,15 +158,15 @@ public class shopController {
 	}
 	
 	
-	// 1. 장바구니 추가
+	
 	@PostMapping("/insert.shop")
     public String insert(@RequestParam(value="user_id",required=false) String  user_id,
     		@ModelAttribute CartVO vo, HttpSession session,Model model,@RequestParam(value="p_id",required=false) String p_id){
-        // 장바구니에 기존 상품이 있는지 검사
+       
       
           cartService.insertCart(vo);
       
-         List<CartVO> listCart = cartService.listCart(user_id); // 장바구니 정보 
+         List<CartVO> listCart = cartService.listCart(user_id); 
        
          model.addAttribute("listCart",listCart);
         
@@ -184,14 +183,13 @@ public class shopController {
 	        return "shop/insert_success";
 	    }
 	 
-	 // 3. 장바구니 삭제
 		@GetMapping("/delete")
 	    public String delete(@RequestParam(value="user_id",required=false) String  user_id,
 	    		@RequestParam(value="cart_id",required=false) int  cart_id,Model model){
 			
 			cartService.delete(cart_id);
 	        
-	        List<CartVO> listCart = cartService.listCart(user_id); // 장바구니 정보 
+	        List<CartVO> listCart = cartService.listCart(user_id);
 
 	        model.addAttribute("listCart",listCart);
 	        
