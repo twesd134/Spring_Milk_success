@@ -9,7 +9,7 @@ public class UserValidator implements Validator{
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub  
 		return UserBean.class.isAssignableFrom(clazz);
 	}
 
