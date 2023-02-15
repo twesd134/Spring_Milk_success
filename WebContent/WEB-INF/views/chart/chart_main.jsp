@@ -47,18 +47,18 @@
 		
 	 	<option value="">전체보기</option>
 		
-		<option value="2020-01">1월</option>
-		<option value="2020-02">2월</option>
-		<option value="2020-03">3월</option>
-		<option value="2020-04">4월</option>
-		<option value="2020-05">5월</option>
-		<option value="2020-06">6월</option>
-		<option value="2020-07">7월</option>
-		<option value="2020-08">8월</option>
-		<option value="2020-09">9월</option>
-		<option value="2020-10">10월</option>
-		<option value="2020-11">11월</option>
-		<option value="2020-12">12월</option>
+		<option value="2022-01">1월</option>
+		<option value="2022-02">2월</option>
+		<option value="2022-03">3월</option>
+		<option value="2022-04">4월</option>
+		<option value="2022-05">5월</option>
+		<option value="2022-06">6월</option>
+		<option value="2022-07">7월</option>
+		<option value="2022-08">8월</option>
+		<option value="2022-09">9월</option>
+		<option value="2022-10">10월</option>
+		<option value="2022-11">11월</option>
+		<option value="2022-12">12월</option>
 		
 	</select> 
 	
